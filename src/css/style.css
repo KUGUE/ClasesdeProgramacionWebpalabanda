@@ -16,6 +16,24 @@ body {
   a {
     text-decoration: none;
   }
+     /* Estilos para el encabezado h1 */
+     h1 {
+        text-align: center;
+        font-size: 14px;
+        color: #333;
+        background-color: #f8f8f8;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        position: relative;
+      }
+  
+      @keyframes banner {
+        0% {
+          left: -100%;
+        }
+        100% {
+          left: 100%;
+        }
+      }
 
   /* Card Styles */
   .card-sl {
