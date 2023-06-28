@@ -1,0 +1,743 @@
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <title>Minijuego</title>
+    </head>
+    <body onload="reloj()">
+        <style>
+            body {
+                padding: 0px;
+                margin: 0px;
+                background: #f1f1f1;
+            }
+        </style>
+
+
+        <canvas id="canvas" width="1280" height="540">
+            No se puede usar canva;
+        </canvas>
+        <img src="img/Fondo.jpg" width="1280" height="540" id="img" style="display:none;">
+
+        <script type="text/javascript">
+            var cronometro;
+            let min = 0;
+            let seg = 0;
+            let canvas = null;
+            let context = null;
+            let player1 = null;
+            let win = null;
+            let pause = false;
+            let color = 'red';
+            let obstaculosN = [null];
+            let obstaculosS =[null];
+            let obstaculosE =[null];
+            let obstaculosO =[null];
+            let wins1=[null];
+            let wins2=[null];
+            let p1=[null];  let p2=[null];let p3=[null]; let p4=[null]; let p5=[null]; let p6=[null]; let p7=[null]; let p8=[null]; let p9=[null]; let p10=[null];
+            let p11=[null];let p12=[null];let p13=[null];let p14=[null];let p15=[null];let p16=[null];let p17=[null];let p18=[null];let p19=[null];let p20=[null];
+            let p21=[null];let p22=[null];let p23=[null];let p24=[null];let p25=[null];let p26=[null];let p27=[null];let p28=[null];let p29=[null];let p30=[null];
+            let p31=[null];let p32=[null];let p33=[null];let p34=[null];let p35=[null];let p36=[null];let p37=[null];let p38=[null];let p39=[null];let p40=[null];
+            let p41=[null];let p42=[null];let p43=[null];let p44=[null];let p45=[null];let p46=[null];let p47=[null];let p48=[null];let p49=[null];let p50=[null];
+            let p51=[null];let p52=[null];let p53=[null];let p54=[null];let p55=[null];let p56=[null];let p57=[null];let p58=[null];let p59=[null];let p60=[null];
+            let p61=[null];let p62=[null];let p63=[null];let p64=[null];let p65=[null];let p66=[null];let p67=[null];let p68=[null];let p69=[null];let p70=[null];
+            let p71=[null];let p72=[null];let p73=[null];
+            let N=40;
+            let aux=0;
+            let aux2=0;
+            let aux3=0;
+            let aux4=0;
+            let isPress = false;
+            let x = 240;
+            let y = 230;
+            let  speed=30;
+            let fondo = new Image();
+            let alien = new Image();
+            let pared = new Image();
+            let nave = new Image();
+            let ambiente = new Audio();
+            let ganaste = new Audio();
+            function start() {   
+            //SONIDO 
+            fondo.src='img/fondo.jpg';
+            ambiente.src='ambiente.mp3';
+            ganaste.src='ganaste.mp3';
+             //LLENAR PAREDES
+             for(let i = 0;i < N;i++){
+            obstaculosN.push(i);obstaculosS.push(i);obstaculosE.push(i);obstaculosO.push(i);
+            p1.push(i);p2.push(i);p3.push(i);p4.push(i);p5.push(i);p6.push(i);p7.push(i);p8.push(i);p9.push(i);p10.push(i);
+            p11.push(i);p12.push(i);p13.push(i);p14.push(i);p15.push(i);p16.push(i);p17.push(i);p18.push(i);p19.push(i);p20.push(i);
+            p21.push(i);p22.push(i);p23.push(i);p24.push(i);p25.push(i);p26.push(i);p27.push(i);p28.push(i);p29.push(i);p30.push(i);
+            p31.push(i);p32.push(i);p33.push(i);p34.push(i);p35.push(i);p36.push(i);p37.push(i);p38.push(i);p39.push(i);p40.push(i);
+            p41.push(i);p42.push(i);p43.push(i);p44.push(i);p45.push(i);p46.push(i);p47.push(i);p48.push(i);p49.push(i);p50.push(i);
+            p51.push(i);p52.push(i);p53.push(i);p54.push(i);p55.push(i);p56.push(i);p57.push(i);p58.push(i);p59.push(i);p60.push(i);
+            p61.push(i);p62.push(i);p63.push(i);p64.push(i);p65.push(i);p66.push(i);p67.push(i);p68.push(i);p69.push(i);p70.push(i);
+            p71.push(i);p72.push(i);p73.push(i);
+            wins1.push(i);
+            wins2.push(i);
+            }
+            canvas = document.getElementById('canvas');
+            context = canvas.getContext('2d');
+            //ELEMENTOS GRAFICOS    
+            alien.src='img/alien.png';
+            pared.src='img/pared.jpg';
+            nave.src='img/win.png';
+            //JUGADOR
+                player1 = new Cuadrado(1170, 240, 30, 30);
+           //MUROS DE DERECHA
+                for(let i = 0;i < N;i++){ 
+                    obstaculosE[i] = new Cuadrado(1200,aux, 30, 30, 'gray');
+                    aux=aux+30;
+                }
+          //MUROS DE ARRIBA
+                for(let i = 0;i < N;i++){ 
+                 obstaculosN[i] = new Cuadrado(aux2,0, 30, 30, 'gray');
+                 aux2=aux2+30;
+             }
+          //MUROS DE ABAJO
+             for(let i = 0;i < 40;i++){ 
+                 obstaculosS[i] = new Cuadrado(aux3,510, 30, 30, 'gray');
+                 aux3=aux3+30;
+             }
+             aux4=60
+          //MUROS DE IZQUIERDA
+          for(let i = 0;i < 14;i++){ 
+             obstaculosO[i] = new Cuadrado(0,aux4, 30, 30, 'gray');
+             aux4=aux4+30;
+         }
+           //PAREDES
+           aux=60
+           for(let i = 0;i < 17;i++){ 
+               p1[i] = new Cuadrado(aux,150, 30, 30, 'gray');
+               aux=aux+30;
+           }
+           aux2=600
+           for(let i = 0;i < 17;i++){ 
+               p2[i] = new Cuadrado(aux2,150, 30, 30, 'gray');
+               aux2=aux2+30;
+           }
+           aux3=180
+           for(let i = 0;i < 17;i++){ 
+               p3[i] = new Cuadrado(aux3,240, 30, 30, 'gray');
+               aux3=aux3+30;
+           }     
+           aux=210
+           for(let i = 0;i < 4;i++){ 
+              p4[i] = new Cuadrado(960,aux, 30, 30);
+              aux=aux+30;
+
+
+          }  
+          aux=30
+          for(let i = 0;i <3;i++){ 
+            p5[i] = new Cuadrado(120,aux, 30, 30);
+            p6[i] = new Cuadrado(420,aux, 30, 30);
+            p7[i] = new Cuadrado(540,aux, 30, 30);
+            p8[i] = new Cuadrado(660,aux, 30, 30);
+            p9[i] = new Cuadrado(780,aux, 30, 30);
+            p10[i] = new Cuadrado(900,aux, 30, 30);
+            p11[i] = new Cuadrado(1020,aux, 30, 30);
+            aux=aux+30;
+        }
+        aux=60
+        for(let i = 0;i <3;i++){ 
+            p12[i] = new Cuadrado(180,aux, 30, 30);
+            p13[i] = new Cuadrado(360,aux, 30, 30);
+            p14[i] = new Cuadrado(480,aux, 30, 30);
+            p15[i] = new Cuadrado(600,aux, 30, 30);
+            p16[i] = new Cuadrado(720,aux, 30, 30);
+            p17[i] = new Cuadrado(840,aux, 30, 30);
+            p18[i] = new Cuadrado(960,aux, 30, 30);
+            aux=aux+30;
+        }
+        aux=80
+        for(let i = 0;i < 2;i++){ 
+         p19[i] = new Cuadrado(180,aux, 30, 30);
+         aux=aux+30;
+     }
+     aux=210
+     for(let i = 0;i < 2;i++){ 
+        p20[i] = new Cuadrado(720,aux, 30, 30);
+        aux=aux+30;
+    }
+    aux=210
+    for(let i = 0;i < 2;i++){ 
+        p21[i] = new Cuadrado(780,aux, 30, 30);
+        aux=aux+30;
+    }
+    aux=210
+    for(let i = 0;i < 4;i++){ 
+        p22[i] = new Cuadrado(840,aux, 30, 30);
+        aux=aux+30;
+    }
+    aux=180
+    for(let i = 0;i < 4;i++){ 
+        p23[i] = new Cuadrado(900,aux, 30, 30);
+        aux=aux+30;
+    }
+    aux=240
+    for(let i = 0;i < 4;i++){ 
+     p24[i] = new Cuadrado(960,aux, 30, 30);
+     aux=aux+30;
+ }
+ aux=390
+ for(let i = 0;i < 3;i++){ 
+ p25[i] = new Cuadrado(960,aux, 30, 30);
+ p26[i] = new Cuadrado(990,aux, 30, 30);
+ p27[i] = new Cuadrado(1020,aux, 30, 30);
+ p28[i] = new Cuadrado(1050,aux, 30, 30);
+ aux=aux+30;
+}
+aux=330
+for(let i = 0;i < 3;i++){ 
+   p29[i] = new Cuadrado(900,aux, 30, 30);
+   aux=aux+30;
+}
+aux=240
+for(let i = 0;i < 3;i++){ 
+    p30[i] = new Cuadrado(1020,aux, 30, 30);
+    aux=aux+30;
+}
+aux=330
+for(let i = 0;i < 4;i++){ 
+    p31[i] = new Cuadrado(60,aux, 30, 30);
+    aux=aux+30;
+}     
+aux=300
+for(let i = 0;i < 5;i++){ 
+  p32[i] = new Cuadrado(210,aux, 30, 30);
+  aux=aux+30;
+}
+aux=330
+for(let i = 0;i < 4;i++){ 
+   p33[i] = new Cuadrado(270,aux, 30, 30);
+   aux=aux+30;
+} 
+aux=330
+for(let i = 0;i < 5;i++){ 
+    p34[i] = new Cuadrado(330,aux, 30, 30);
+    aux=aux+30;
+}
+aux=330
+for(let i = 0;i < 3;i++){ 
+  p35[i] = new Cuadrado(450,aux, 30, 30);
+  aux=aux+30;
+}
+aux=270
+for(let i = 0;i < 2;i++){ 
+   p36[i] = new Cuadrado(510,aux, 30, 30);
+   p37[i] = new Cuadrado(630,aux, 30, 30);
+   p38[i] = new Cuadrado(750,aux, 30, 30);
+   p39[i] = new Cuadrado(510,aux, 30, 30);
+   aux=aux+30;
+}
+aux=300
+for(let i = 0;i < 2;i++){ 
+   p40[i] = new Cuadrado(570,aux, 30, 30);
+   p41[i] = new Cuadrado(690,aux, 30, 30);
+   aux=aux+30;
+
+}
+aux=390
+for(let i = 0;i < 2;i++){ 
+   p42[i] = new Cuadrado(570,aux, 30, 30);
+   p43[i] = new Cuadrado(690,aux, 30, 30);
+   aux=aux+30;
+}
+aux=420
+for(let i = 0;i < 3;i++){ 
+   p44[i] = new Cuadrado(390,aux, 30, 30);
+   p45[i] = new Cuadrado(510,aux, 30, 30);
+   p46[i] = new Cuadrado(630,aux, 30, 30);
+   p47[i] = new Cuadrado(750,aux, 30, 30);
+   aux=aux+30;
+}
+aux=270
+for(let i = 0;i < 4;i++){ 
+  p48[i] = new Cuadrado(aux,180, 30, 30);
+  aux=aux+120;
+}
+aux=210
+for(let i = 0;i < 4;i++){ 
+   p49[i] = new Cuadrado(aux,210, 30, 30);
+   aux=aux+120;
+}
+aux=810
+for(let i = 0;i < 2;i++){ 
+   p50[i] = new Cuadrado(aux,360, 30, 30);
+   p51[i] = new Cuadrado(aux,390, 30, 30);
+   p52[i] = new Cuadrado(aux,420, 30, 30);
+   p53[i] = new Cuadrado(aux,450, 30, 30);
+   aux=aux+30;
+}
+aux=120
+for(let i = 0;i < 2;i++){ 
+   p54[i] = new Cuadrado(aux,390, 30, 30);
+   p55[i] = new Cuadrado(aux,420, 30, 30);
+   p56[i] = new Cuadrado(aux,450, 30, 30);
+   p57[i] = new Cuadrado(aux,480, 30, 30);
+   aux=aux+30;
+}
+aux=240
+for(let i = 0;i < 3;i++){ 
+   p58[i] = new Cuadrado(aux,30, 30, 30);
+   p59[i] = new Cuadrado(aux,60, 30, 30);
+   p60[i] = new Cuadrado(aux,90, 30, 30);
+   aux=aux+30;
+}
+aux=60
+for(let i = 0;i < 2;i++){ 
+   p61[i] = new Cuadrado(aux,120, 30, 30);
+   p62[i] = new Cuadrado(aux,300, 30, 30);
+   aux=aux+30;
+}
+for(let i = 0;i < 1;i++){ 
+   p63[i] = new Cuadrado(810,180, 30, 30);
+   p64[i] = new Cuadrado(240,270, 30, 30);
+   p65[i] = new Cuadrado(300,480, 30, 30);
+   p66[i] = new Cuadrado(300,480, 30, 30);
+   p67[i] = new Cuadrado(30,450, 30, 30);
+   p68[i] = new Cuadrado(150,270, 30, 30);
+   p69[i] = new Cuadrado(240,450, 30, 30);
+   p70[i] = new Cuadrado(690,210, 30, 30);
+}
+aux4=390
+for(let i = 0;i <13;i++){ 
+   p71[i] = new Cuadrado(aux4,360, 30, 30);
+   aux4=aux4+30;
+}
+aux=60
+for(let i = 0;i < 14;i++){ 
+  p72[i] = new Cuadrado(1110,aux, 30, 30);
+  aux=aux+30;
+}
+   aux=210
+    for(let i = 0;i < 5;i++){ 
+         p73[i] = new Cuadrado(120,aux, 30, 30);
+        aux=aux+30;
+    }
+
+for(let i = 0;i < 1;i++){ 
+   wins1[i] = new Cuadrado(0,30, 30, 30);
+   wins2[i] = new Cuadrado(0,480, 30, 30);
+}
+paint();
+}
+const paint = () => {
+    window.requestAnimationFrame(paint);
+ //ELEMENTOS GRAFICOS 
+
+          context.fillRect(0, 0, 1200, 600);
+          context.drawImage(fondo,0,0, 1200, 600);
+          img.onload = function(){
+          context.drawImage(fondo,0,0,1280,600);
+       }
+       context.drawImage(alien,player1.x,player1.y,30,30);
+        //WIN
+          context.drawImage(nave,0,30,30,30);
+          context.drawImage(nave,0,480,30,30);
+        //PAREDES
+        aux=60
+
+        for(let i = 0;i < 17;i++){ 
+             context.drawImage(pared,aux,150, 30, 30);
+            aux=aux+30;
+         }
+         aux2=600
+         for(let i = 0;i < 17;i++){ 
+             context.drawImage(pared,aux2,150, 30, 30,);
+             aux2=aux2+30;
+         }
+         aux3=180
+         for(let i = 0;i < 17;i++){ 
+             context.drawImage(pared,aux3,240, 30, 30,);
+             aux3=aux3+30;
+         }
+         aux4=390
+         for(let i = 0;i <13;i++){ 
+             context.drawImage(pared,aux4,360, 30, 30,);
+             aux4=aux4+30;
+         }
+         aux3=60
+         for(let i = 0;i < 14;i++){ 
+             context.drawImage(pared,1110,aux3, 30, 30,);
+             aux3=aux3+30;
+         }
+         aux=30
+         for(let i = 0;i < 3;i++){ 
+             context.drawImage(pared,120,aux, 30, 30,);
+             context.drawImage(pared,420,aux, 30, 30,);
+             context.drawImage(pared,540,aux, 30, 30,);
+             context.drawImage(pared,660,aux, 30, 30,);
+             context.drawImage(pared,780,aux, 30, 30,);
+             context.drawImage(pared,900,aux, 30, 30,);
+             context.drawImage(pared,1020,aux, 30, 30,);
+             aux=aux+30;
+         }
+         aux=60
+         for(let i = 0;i < 3;i++){ 
+             context.drawImage(pared,180,aux, 30, 30,);
+             context.drawImage(pared,360,aux, 30, 30,);
+             context.drawImage(pared,480,aux, 30, 30,);
+             context.drawImage(pared,600,aux, 30, 30,);
+             context.drawImage(pared,720,aux, 30, 30,);
+             context.drawImage(pared,840,aux, 30, 30,);
+             context.drawImage(pared,960,aux, 30, 30,);
+             aux=aux+30;
+         }
+         aux=80
+         for(let i = 0;i < 2;i++){ 
+             context.drawImage(pared,180,aux, 30, 30,);
+             aux=aux+30;
+         }
+         aux=210
+         for(let i = 0;i < 2;i++){ 
+             context.drawImage(pared,720,aux, 30, 30,);
+             aux=aux+30;
+         }
+         aux=210
+         for(let i = 0;i < 2;i++){ 
+             context.drawImage(pared,780,aux, 30, 30,);
+             aux=aux+30;
+         }
+         aux=210
+         for(let i = 0;i < 4;i++){ 
+             context.drawImage(pared,840,aux, 30, 30,);
+             aux=aux+30;
+         }
+         aux=180
+         for(let i = 0;i < 4;i++){ 
+             context.drawImage(pared,900,aux, 30, 30,);
+             aux=aux+30;
+         }
+         aux=210
+         for(let i = 0;i < 4;i++){ 
+             context.drawImage(pared,960,aux, 30, 30,);
+             aux=aux+30;
+         }
+         aux=240
+         for(let i = 0;i < 4;i++){ 
+             context.drawImage(pared,960,aux, 30, 30,);
+             aux=aux+30;
+         }
+         aux=390
+         for(let i = 0;i < 3;i++){ 
+             context.drawImage(pared,960,aux, 30, 30,);
+             context.drawImage(pared,990,aux, 30, 30,);
+             context.drawImage(pared,1020,aux, 30, 30,);
+             context.drawImage(pared,1050,aux, 30, 30,);
+             aux=aux+30;
+         }
+        aux=330
+        for(let i = 0;i < 3;i++){ 
+           context.drawImage(pared,900,aux, 30, 30,);
+           aux=aux+30;
+        }
+        aux=240
+        for(let i = 0;i < 3;i++){ 
+            context.drawImage(pared,1020,aux, 30, 30,);
+            aux=aux+30;
+        }
+        aux=330
+        for(let i = 0;i < 4;i++){ 
+            context.drawImage(pared,60,aux, 30, 30,);
+            aux=aux+30;
+        }
+        aux=300
+        for(let i = 0;i < 5;i++){ 
+            context.drawImage(pared,210,aux, 30, 30,);
+            aux=aux+30;
+        }
+        aux=330
+        for(let i = 0;i < 4;i++){ 
+            context.drawImage(pared,270,aux, 30, 30,);
+            aux=aux+30;
+        } 
+        aux=330
+        for(let i = 0;i < 5;i++){ 
+            context.drawImage(pared,330,aux, 30, 30,);
+            aux=aux+30;
+        }
+        aux=330
+        for(let i = 0;i < 3;i++){ 
+            context.drawImage(pared,450,aux, 30, 30,);
+            aux=aux+30;
+        }
+        aux=270
+        for(let i = 0;i < 2;i++){ 
+            context.drawImage(pared,510,aux, 30, 30,);
+            context.drawImage(pared,630,aux, 30, 30,);
+            context.drawImage(pared,750,aux, 30, 30,);
+            context.drawImage(pared,510,aux, 30, 30,);
+            aux=aux+30;
+        }
+        aux=300
+        for(let i = 0;i < 2;i++){ 
+            context.drawImage(pared,570,aux, 30, 30,);
+            context.drawImage(pared,690,aux, 30, 30,);
+            aux=aux+30;
+        }
+        aux=390
+        for(let i = 0;i < 2;i++){ 
+            context.drawImage(pared,570,aux, 30, 30,);
+            context.drawImage(pared,690,aux, 30, 30,);
+            aux=aux+30;
+        }
+        aux=420
+        for(let i = 0;i < 3;i++){ 
+        context.drawImage(pared,390,aux, 30, 30,);
+        context.drawImage(pared,630,aux, 30, 30,);
+        context.drawImage(pared,750,aux, 30, 30,);
+        context.drawImage(pared,510,aux, 30, 30,);
+        aux=aux+30;
+    }
+    aux=270
+    for(let i = 0;i < 4;i++){ 
+        context.drawImage(pared,aux,180, 30, 30,);
+        aux=aux+120;
+    }
+    aux=210
+    for(let i = 0;i < 4;i++){ 
+        context.drawImage(pared,aux,210, 30, 30,);
+        aux=aux+120;
+    }
+    aux=810
+    for(let i = 0;i < 2;i++){ 
+        context.drawImage(pared,aux,360, 30, 30,);
+        context.drawImage(pared,aux,390, 30, 30,);
+        context.drawImage(pared,aux,420, 30, 30,);
+        context.drawImage(pared,aux,450, 30, 30,);
+        aux=aux+30;
+    }
+    aux=120
+    for(let i = 0;i < 2;i++){ 
+        context.drawImage(pared,aux,390, 30, 30,);
+        context.drawImage(pared,aux,420, 30, 30,);
+        context.drawImage(pared,aux,450, 30, 30,);
+        context.drawImage(pared,aux,480, 30, 30,);
+        aux=aux+30;
+    }
+    aux=240
+    for(let i = 0;i < 3;i++){ 
+        context.drawImage(pared,aux,30, 30, 30,);
+        context.drawImage(pared,aux,60, 30, 30,);
+        context.drawImage(pared,aux,90, 30, 30,);
+        aux=aux+30;
+    }
+    aux=210
+    for(let i = 0;i < 5;i++){ 
+        context.drawImage(pared,120,aux, 30, 30,);
+        aux=aux+30;
+    }
+    aux=60
+    for(let i = 0;i < 2;i++){ 
+        context.drawImage(pared,aux,120, 30, 30,);
+        context.drawImage(pared,aux,300, 30, 30,);
+        aux=aux+30;
+    }
+    for(let i = 0;i < 1;i++){ 
+        context.drawImage(pared,810,180, 30, 30,);
+        context.drawImage(pared,240,270, 30, 30,);
+        context.drawImage(pared,300,480, 30, 30,);
+
+        //UPDATE BLOQUEO DE NUEVOS CAMINOS
+        context.drawImage(pared,30,450, 30, 30,);
+        context.drawImage(pared,150,270, 30, 30,);
+        context.drawImage(pared,240,450, 30, 30,);
+        context.drawImage(pared,690,210, 30, 30,);
+        }
+
+            //DERECHA
+            aux=0
+            for(let i = 0;i < N;i++){ 
+                context.drawImage(pared,1200,aux,30, 30);
+                aux=aux+30;
+            }      
+            aux2=0
+             //ARRIBA
+             for(let i = 0;i < N;i++){ 
+                context.drawImage(pared,aux2,0,30, 30);
+                aux2=aux2+30;
+            }    
+             //ABAJO
+             aux3=0
+             for(let i = 0;i < 40;i++){ 
+                 context.drawImage(pared,aux3,510,30, 30);
+                 aux3=aux3+30;
+             }
+            //IZQUIERDA
+            aux4=60
+            for(let i = 0;i < 14;i++){ 
+              context.drawImage(pared,0,aux4,30, 30);
+              aux4=aux4+30;
+          }
+
+ //MENU PAUSA Y CONTROLES
+ if (!pause) {
+    update();
+} else {
+        context.fillStyle="rgba(0,0,0,0.5)";
+        context.fillRect(0, 0, 1200, 620);
+        context.fillStyle="#fff";
+        context.font = "30px Arial";
+        direction=null;
+        context.fillText("P A U S A", 550, 120);
+        context.fillText("C O N T R O L E S", 150, 250);
+        context.fillText("MOVERSE: ", 140, 300);
+        context.fillText("W A S D", 310, 300);
+        context.fillText("PAUSA: ", 140, 330);
+        context.fillText("ESPACIO", 310, 330);
+        context.fillText("REINICIAR: ", 140, 360);
+        context.fillText("H", 310, 360); 
+        context.fillText("PONER MUSICA: ",140, 420);
+        context.fillText("P", 400, 420);
+        context.fillStyle = "#000000";
+      }
+}
+document.addEventListener('keyup', (event) => {
+  var keyValue = event.key;
+  var codeValue = event.code;
+if (direction === 'down'  ) {
+    player1.y =player1.y+30;
+} 
+if (direction === 'up') {
+    player1.y =player1.y-30;
+}
+if (direction === 'right') {
+    player1.x =player1.x+30;
+}
+if (direction === 'left') {
+    player1.x =player1.x-30;  
+}
+});
+
+const update = () => {
+
+    context.font = "30px Arial";
+    context.fillText("TIEMPO = " + min + " min " + seg + "segs", 40, 535);
+    for(let i = 0;i < N;i++){ 
+        if (player1.se_tocan(wins1[i])|| player1.se_tocan(wins2[i])) {
+            clearInterval(cronometro);
+            context.fillStyle = "rgba(0,0,0,0.5)";
+            context.fillRect(0, 0, 1200, 620);
+            context.fillStyle = "#fff";
+            context.font = "30px Arial";
+            context.fillText("G A N A S T E", 550, 120);
+            context.fillText("REINICIAR: ", 140, 360);
+            context.fillText("H", 310, 360);
+            direction=null;
+            ganaste.play();
+            ambiente.pause();
+            context.fillText("TIEMPO = " + min + " min " + seg + "segs", 140, 330);
+            context.fillStyle = "#000000";
+        }
+    }
+    for(let i = 0;i < N;i++){ 
+        if (player1.se_tocan(obstaculosN[i])||player1.se_tocan(obstaculosE[i])||player1.se_tocan(obstaculosS[i])||player1.se_tocan(obstaculosO[i])||player1.se_tocan(p1[i])||player1.se_tocan(p2[i])||player1.se_tocan(p3[i])||player1.se_tocan(p4[i])||player1.se_tocan(p5[i])||player1.se_tocan(p6[i])||player1.se_tocan(p7[i])||player1.se_tocan(p8[i])||player1.se_tocan(p9[i])||player1.se_tocan(p10[i])||player1.se_tocan(p11[i])||player1.se_tocan(p12[i])||player1.se_tocan(p13[i])||player1.se_tocan(p14[i])||player1.se_tocan(p15[i])||player1.se_tocan(p16[i])||player1.se_tocan(p17[i])||player1.se_tocan(p18[i])||player1.se_tocan(p19[i])||player1.se_tocan(p20[i])||player1.se_tocan(p21[i])||player1.se_tocan(p22[i])||player1.se_tocan(p23[i])||player1.se_tocan(p24[i])||player1.se_tocan(p25[i])||player1.se_tocan(p26[i])||player1.se_tocan(p27[i])||player1.se_tocan(p28[i])||player1.se_tocan(p29[i])||player1.se_tocan(p30[i])||player1.se_tocan(p31[i])||player1.se_tocan(p32[i])||player1.se_tocan(p33[i])||player1.se_tocan(p34[i])||player1.se_tocan(p35[i])||player1.se_tocan(p36[i])||player1.se_tocan(p37[i])||player1.se_tocan(p38[i])||player1.se_tocan(p39[i])||player1.se_tocan(p40[i])||player1.se_tocan(p41[i])||player1.se_tocan(p42[i])||player1.se_tocan(p43[i])||player1.se_tocan(p44[i])||player1.se_tocan(p45[i])||player1.se_tocan(p46[i])||player1.se_tocan(p47[i])||player1.se_tocan(p48[i])||player1.se_tocan(p49[i])||player1.se_tocan(p50[i])||player1.se_tocan(p51[i])||player1.se_tocan(p52[i])||player1.se_tocan(p53[i])||player1.se_tocan(p54[i])||player1.se_tocan(p55[i])||player1.se_tocan(p56[i])||player1.se_tocan(p57[i])||player1.se_tocan(p58[i])||player1.se_tocan(p59[i])||player1.se_tocan(p60[i])||player1.se_tocan(p61[i])||player1.se_tocan(p62[i])||player1.se_tocan(p63[i])||player1.se_tocan(p64[i])||player1.se_tocan(p65[i])||player1.se_tocan(p66[i])||player1.se_tocan(p67[i])||player1.se_tocan(p68[i])||player1.se_tocan(p69[i])||player1.se_tocan(p70[i])||player1.se_tocan(p71[i])||player1.se_tocan(p72[i])||player1.se_tocan(p72[i])||player1.se_tocan(p73[i])){
+            if (direction === 'down') {
+        
+                player1.y -=speed;
+                       
+            }
+            if (direction === 'up') {
+            
+                player1.y +=speed;
+                   
+            }
+            if (direction === 'right') {
+             
+                player1.x -=speed;
+               
+            }
+            if (direction === 'left') {
+         
+                player1.x +=speed;
+                       
+            }
+        } 
+    }
+}
+
+class Cuadrado {
+    constructor(x, y, w, h, color) {
+        this.x = x;
+        this.y = y;
+        this.w = h;
+        this.h = h;
+        this.color = color;
+        }
+    dibujar = function(context) {
+        context.fillStyle = this.color;
+        context.fillRect(this.x, this.y, this.w, this.h);
+        context.strokeRect(this.x, this.y, this.w, this.h);
+        }
+    se_tocan = function(target) {
+        if (this.x < target.x + target.w &&
+            this.x + this.w > target.x &&
+            this.y < target.y + target.h &&
+            this.y + this.h > target.y) {
+            return true;
+            }
+};
+            } 
+document.addEventListener('keydown',({
+    keyCode
+}) => {
+     ambiente.play();
+                // arriba
+                if (keyCode == 87 || keyCode == 38) {
+                    direction = 'up';
+                }
+                // derecha
+                if (keyCode == 68 || keyCode == 39) {
+                    direction = 'right';
+                }
+                // abajo
+                if (keyCode == 83 || keyCode == 40) {
+                    direction = 'down';
+                }
+                // izquierda
+                if (keyCode == 65 || keyCode == 37) {
+                    direction = 'left';
+                }
+                // Pause
+                if (keyCode == 32) {
+                    pause = (pause) ? false : true;
+                }
+                 // Reiniciar
+                 if (keyCode == 72) {
+                    location.reload();
+                }
+                 //Poner Musica
+                 if (keyCode == 112|| keyCode == 80) {
+                    ambiente.play();
+                 }
+             })
+window.addEventListener("load", start);
+window.requestAnimationFrame = (function() {
+    return window.requestAnimationFrame ||
+    window.webkitRequestAnimationFrame ||
+    window.mozRequestAnimationFrame ||
+    function(callback) {
+        window.setTimeout(callback, 1000);
+    };
+}());
+function reloj() {
+    cronometro = setInterval(function() {
+        if (seg == 60) {
+            seg = 0;
+            min += 1;
+            if (min == 60) {
+                min = 0;
+            }
+        }
+        seg++;
+    }, 1000);
+}
+</script>
+</body>
+</html> 
