@@ -6,164 +6,56 @@
   <meta http-equiv='X-UA-Compatible' content='IE=edge'>
   <title>Portafolio</title>
   <script src="src/js/disclaimer.js"></script>
-  <meta name='viewport' content='width=device-width, initial-scale=1'>
-  <link rel="stylesheet" href="src/css/style.css">
-  <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
-    crossorigin="anonymous"></script>
-</head>
+  <link rel="stylesheet" href="./style.css">
+  
+  <style>
+    /* Estilo para la animación de transición */
+    .fade-out {
+      opacity: 1;
+      transition: opacity 0.5s ease-in-out;
+    }
+    
+    .fade-out.active {
+      opacity: 0;
+    }
+  </style>
 
 <body>
-  <img src="src/img/fondo.jpg" id="fondo" alt="">
-  <h1 id="Yo">DISEÑADO POR EMMANUEL KUGUE TAPIZ</h1>
   <div class="container">
-    <div class="row">
-      <div class="col-md-4">
-        <div class="card-sl">
-          <div class="card-image">
-            <img src="src/img/wallpaper.jpg" />
-          </div>
-          <div class="card-heading">
-            Clases de HTML Y CSS BASICO
-          </div>
-          <div class="card-text">
-           Aqui se realizan actividades de css basicas asi como html basico
-          </div>
-          <div class="card-text">
-            Actividades 3/10
-          </div>
-          <a href="Clases/index.html" class="card-button">Ver actividades</a>
-        </div>
-      </div>
 
 
-      <div class="col-md-4">
-        <div class="card-sl">
-          <div class="card-image" style="height: 210px; " >
-            <img src="src/img/salon.jpg" style="width: 100%;"/>
-          </div>
-          <div class="card-heading">
-            Salon Armenta
-          </div>
-          <div class="card-text">
-           Proyecto Salon 
-          </div>
-          <div class="card-text">
-            Avance 0%
-          </div>
-          <a href="Salon/index.html" class="card-button">Ver Actividad</a>
-        </div>
+    <div id="marketing" class="section" onclick="redirectToIndex('Proyectos')">
+      <div class="content">
+        <h1>Proyectos</h1>
       </div>
-
-      <div class="col-md-4">
-        <div class="card-sl">
-          <div class="card-image">
-            <img src="src/img/wallpaper.jpg" />
-          </div>
-          <div class="card-heading">
-            PROYECTO PERSONAL 
-          </div>
-          <div class="card-text">
-          Market de Bebidas perk
-          </div>
-          <div class="card-text">
-            Calificación 0/100
-          </div>
-          <a href="Proximamente.html" class="card-button">Ver Actividad</a>
-        </div>
-      </div>
-      
-      <div class="col-md-4">
-        <div class="card-sl">
-          <div class="card-image">
-            <img src="src/img/trex-chrome-game.png" />
-          </div>
-          <div class="card-heading">
-            Dino Runner
-          </div>
-          <div class="card-text">
-            Juego tipo dino runer de google 
-          </div>
-          <div class="card-text">
-            Progreso 100%
-          </div>
-          <a href="Juego/index.html" class="card-button">Ver proyecto</a>
-        </div>
-      </div>
-
-      <div class="col-md-4">
-        <div class="card-sl">
-          <div class="card-image">
-            <img src="src/img/laberinto.jpg" />
-          </div>
-          <div class="card-heading">
-          Laberinto
-          </div>
-          <div class="card-text">
-          Juego donde hice un laberinto usando canva
-          </div>
-          <div class="card-text">
-            Progreso 100%
-          </div>
-          <a href="Laberinto/index.html" class="card-button">Ver proyecto</a>
-        </div>
-      </div>
-
-      <div class="col-md-4">
-        <div class="card-sl">
-          <div class="card-image">
-            <img src="src/img/zwdesign.jpg" />
-          </div>
-          <div class="card-heading">
-            ZWD DESIGN
-          </div>
-          <div class="card-text">
-            Proyecto para realizar proyectos de dibujo como un figma o photoshop
-          </div>
-          <div class="card-text">
-            Progreso 90%
-          </div>
-          <a href="Proximamente.html" class="card-button">Ver Actividad</a>
-        </div>
-      </div>
-      <div class="col-md-4">
-        <div class="card-sl">
-          <div class="card-image">
-            <img src="src/img/wave.jpg" />
-          </div>
-          <div class="card-heading">
-            ChatWave
-          </div>
-          <div class="card-text">
-            Proyecto personal para chatear con otras personas
-          </div>
-          <div class="card-text">
-            Progreso 33%
-          </div>
-          <a href="Chat/index.php" class="card-button">Ver Proyecto</a>
-        </div>
-      </div>
-      <div class="col-md-4">
-        <div class="card-sl">
-          <div class="card-image">
-            <img src="src/img/flutter.jpg" />
-          </div>
-          <div class="card-heading">
-            Flutter Curso
-          </div>
-          <div class="card-text">
-            Aqui desarrolle todas las actividades en el curso de udemy
-          </div>
-          <div class="card-text">
-            Video 47
-          </div>
-          <a href="Proximamente.html" class="card-button">Ver Proyecto</a>
-        </div>
-      </div>
+      <div class="overlay"></div>
     </div>
-  </div>
+
+    <div id="technology" class="section" onclick="redirectToIndex('Juegos')">
+      <div class="content">
+        <h1>Juegos</h1>
+      </div>
+      <div class="overlay"></div>
+    </div>
+
+    <div id="advertising" class="section" onclick="redirectToIndex('Clases')">
+      <div class="content">
+        <h1>Clases</h1>
+      </div>
+      <div class="overlay"></div>
+    </div>
+
+    <script>
+      function redirectToIndex(page) {
+        // Agregar la clase 'fade-out' al body antes de redirigir
+        document.body.classList.add('fade-out');
+        setTimeout(function() {
+          // Redirigir a la página después de un breve retraso
+          window.location.href = page + "/index.html";
+        }, 500); // 500 milisegundos (0.5 segundos)
+      }
+    </script>
+
 </body>
+
 </html>
