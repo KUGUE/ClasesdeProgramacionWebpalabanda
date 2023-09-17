@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <!-- ... (otras etiquetas meta y título) ... -->
+        <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/jquery.slick/1.8.1/slick.css"/>
+        <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/jquery.slick/1.8.1/slick-theme.css"/>
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <script type="text/javascript" src="https://cdn.jsdelivr.net/jquery.slick/1.8.1/slick.min.js"></script>
+    </head>
+    <body>
+        <h1>Tarjetas de Jugador de Valorant</h1>
+        <div class="player-card-carousel">
+            <!-- Las tarjetas de jugador se agregarán aquí -->
+        </div>
+    
+        <script>
+            const playerCardContainer = document.querySelector('.player-card-carousel');
+    
+            // Realizar una solicitud a la API
+            fetch('https://valorant-api.com/v1/playercards')
+                .then(response => response.json())
+                .then(data => {
+                    // Crear una variable para almacenar el HTML de las tarjetas
+                    let cardHTML = '';
+    
+                    // Iterar a través de las tarjetas de jugador y crear el HTML correspondiente
+                    data.data.forEach(playerCard => {
+                        cardHTML += `
+                  
+                                <img src="${playerCard.displayIcon}" alt="${playerCard.displayName}">
+                                <p>${playerCard.displayName}</p>
+                      
+                        `;
+                    });
+    
+                    // Agregar el HTML al contenedor del carrusel
+                    playerCardContainer.innerHTML = cardHTML;
+    
+                    // Inicializar el carrusel utilizando Slick Carousel
+                    $(playerCardContainer).slick({
+                        infinite: true,
+                        slidesToShow: 4,
+                        slidesToScroll: 1,
+                        responsive: [
+                            {
+                                breakpoint: 768,
+                                settings: {
+                                    slidesToShow: 2
+                                }
+                            },
+                            {
+                                breakpoint: 480,
+                                settings: {
+                                    slidesToShow: 1
+                                }
+                            }
+                        ]
+                    });
+                })
+                .catch(error => {
+                    console.error('Error al cargar las tarjetas de jugador:', error);
+                });
+        </script>
+    </body>
+    
+</html>

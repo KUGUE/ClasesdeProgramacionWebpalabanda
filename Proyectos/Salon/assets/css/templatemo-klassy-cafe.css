@@ -676,8 +676,8 @@ banner
 #top .left-content h4 {
   font-family: 'Dancing Script', cursive;
   color: #fff;
-  font-size: 54px;
-  font-weight: 700;
+  font-size: 44px;
+  font-weight: 100;
 }
 
 #top .left-content h6 {
@@ -753,6 +753,15 @@ banner
   vertical-align:middle;
 }
 
+.row {
+  display: -ms-flexbox;
+  /* display: flex; */
+  -ms-flex-wrap: wrap;
+  align-content: center;
+  flex-wrap: wrap;
+  margin-right: -15px;
+  margin-left: -15px;
+}
 .Modern-Slider .NextArrow {
   position:absolute;
   top:50%;

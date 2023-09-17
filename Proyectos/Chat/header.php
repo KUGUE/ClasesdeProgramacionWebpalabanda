@@ -9,7 +9,7 @@
   <title>Chat De Amigos</title>
   <link rel="stylesheet" href="./style.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" />
-
+<script src="javascript/disclaimer.js"></script>
   <style>
   .wrapper{
   background: #fff;
