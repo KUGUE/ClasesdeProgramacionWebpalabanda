@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- title -->
+    <title>Metodos Numericos</title>
+    <!-- favicon -->
+    <link rel="shortcut icon" type="image/png" href="assets/img/favicon.png">
+    <!-- google font -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Poppins:400,700&display=swap" rel="stylesheet">
+    <!-- fontawesome -->
+    <link rel="stylesheet" href="assets/css/all.min.css">
+    <!-- bootstrap -->
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+    <!-- owl carousel -->
+    <link rel="stylesheet" href="assets/css/owl.carousel.css">
+    <!-- magnific popup -->
+    <link rel="stylesheet" href="assets/css/magnific-popup.css">
+    <!-- animate css -->
+    <link rel="stylesheet" href="assets/css/animate.css">
+    <!-- mean menu css -->
+    <link rel="stylesheet" href="assets/css/meanmenu.min.css">
+    <!-- main style -->
+    <link rel="stylesheet" href="assets/css/main.css">
+    <!-- responsive -->
+    <link rel="stylesheet" href="assets/css/responsive.css">
+
+    <script src="src/js/disclaimer.js"></script>
+</head>
+<style>
+    /* Estilos para resaltar la sintaxis */
+    pre {
+        background-color: #f4f4f4;
+        padding: 10px;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        font-family: monospace;
+    }
+
+    code {
+        color: #333;
+    }
+
+    /* Estilo para la palabra "from" */
+    .keyword-from {
+        color: blue;
+    }
+
+    /* Estilo para "math", "import", y "*" */
+    .keyword-math,
+    .keyword-import,
+    .keyword-asterisk {
+        color: blue;
+    }
+
+    /* Estilo para la palabra "def" */
+    .keyword-def {
+        color: blue;
+    }
+
+    /* Estilo para los paréntesis */
+    .parentheses {
+        color: yellow;
+    }
+
+    /* Estilo para el contenido dentro de los prints */
+    .print-content {
+        color: brown;
+    }
+
+    /* Estilo para los comentarios */
+    .comment {
+        color: green;
+    }
+
+    /* Estilo para números */
+    .number {
+        color: red;
+    }
+
+    /* Estilo para "e" y "sin" */
+    .function-name {
+        color: brown;
+    }
+
+    /* Estilo para "return" */
+    .keyword-return {
+        color: blue;
+    }
+</style>
+
+<body>
+    <!--PreLoader-->
+    <div class="loader">
+        <div class="loader-inner">
+            <div class="circle"></div>
+        </div>
+    </div>
+    <!--PreLoader Ends-->
+
+    <!-- header -->
+    <div class="top-header-area" id="sticker">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 col-sm-12 text-center">
+                    <div class="main-menu-wrap">
+                        <!-- logo -->
+                        <!-- menu start -->
+                        <nav class="main-menu">
+                            <ul>
+                                <li><a href="../Juan/index.html">Inicio</a></li>
+                                <li class="current-list-item"><a href="../Juan/Biseccion.html">Biseccion</a></li>
+                                <li><a href="../Juan/Secante.html">Secante</a></li>
+                                <li><a href="../Juan/FalsaPosicion.html">FalsaPosicion</a></li>
+                                <li><a href="../Juan/NewRapson.html">New Raphson</a></li>
+                                <li><a href=""></a></li>
+                            </ul>
+                        </nav>
+
+                        <!-- menu end -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- end header -->
+
+    <style>
+        .hero-area {
+            width: 100%;
+            margin: 0;
+            /* Asegúrate de que no haya margen */
+            padding: 0;
+            /* Asegúrate de que no haya relleno */
+        }
+    </style>
+
+
+    <!-- hero area -->
+    <div class="hero-area hero-bg">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-9 offset-lg-2 text-center">
+                    <div class="hero-text">
+                        <div class="hero-text-tablecell">
+                            <p class="subtitle">Métodos Numéricos</p>
+                            <h1>Método de Bisección</h1>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- end hero area -->
+
+
+    <!-- end features list section -->
+
+    <!-- product section -->
+    <div class="product-section mt-150 mb-150">
+        <div class="container">
+            <div class="row">
+                <div class="container">
+                    <div class="col-md-12">
+                        <div class="hero-area hero-bg">
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col-lg-9 offset-lg-2 text-center">
+                                        <div class="hero-text">
+                                            <div class="hero-text-tablecell">
+                                                <h1>Bisección</h1>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="container">
+                            <div>
+                                <div>
+                                    <p></p>
+                                    <p style="color: black;">El método de la bisección es un algoritmo numérico
+                                        utilizado para encontrar aproximaciones a las raíces de una ecuación o función,
+                                        es decir, los valores de x para los cuales f(x)=0. Este método es especialmente
+                                        útil cuando se trabaja con ecuaciones no lineales y es relativamente simple de
+                                        implementar. Aquí tienes una descripción básica del método de la bisección</p>
+                                    <P>
+                                        <b> Intervalo inicial: </b> Debes tener un intervalo inicial
+                                        [a,b] en el cual se sepa que la función cambia de signo (es decir, f(a)⋅f(b) <
+                                            0)Esta condición es esencial para garantizar que haya al menos una raíz
+                                            dentro del intervalo. Continuidad de la función: La función f(x) debe ser
+                                            continua en el intervalo [a,b].</p>
+                                            <h4>Pasos del método de la bisección</h4>
+                                            <p>
+                                                1.Calcula el punto medio del intervalo inicial: c= a+b / 2
+
+                                            </p>
+                                            <p> ​2.Evalúa la función f(c) en el punto medio. Determina si f(c) es igual
+                                                a cero (en cuyo caso, c es una raíz exacta) o si f(c) tiene el mismo
+                                                signo que f(a) o f(b).</p>
+                                            <p>
+                                                3.Determina si f(c) es igual a cero (en cuyo caso, c es una raíz exacta)
+                                                o
+                                                si f(c) tiene el mismo signo que f(a) o f(b). Si f(c) es igual a cero,
+                                                entonces has encontrado una raíz exacta y puedes detener el proceso. Si
+                                                f(c) tiene el mismo signo que f(a), la raíz se encuentra en el intervalo
+                                                [c,b], por lo que debes reemplazar a por c (es decir,a=c). Si f(c) tiene
+                                                el mismo signo que f(b), la raíz se encuentra en el intervalo [a,c], por
+                                                lo que debes reemplazar b por c (es decir, b=c).
+                                            </p>
+                                            <p>4.Repite los pasos 1-3 hasta que el intervalo se vuelva lo
+                                                suficientemente pequeño o hasta que encuentres una aproximación
+                                                aceptable de la raíz.
+                                            </p>
+                                            <p>5.La aproximación final de la raíz se encuentra en el punto medio del
+                                                intervalo final, es decir,aprox aprox= a+b/2.</p>
+                                            <b>"El método de la bisección es un proceso iterativo que divide
+                                                continuamente el intervalo a la mitad y reduce la incertidumbre sobre la
+                                                ubicación de la raíz. Aunque puede ser más lento que algunos otros
+                                                métodos numéricos, es robusto y garantiza la convergencia a una raíz en
+                                                función de las condiciones iniciales proporcionadas"</b>
+                                            <p></p>
+                                            <h4>Codigo Biseccion</h4>
+                                            <pre><code>
+                                                <span class="keyword-from">from</span> <span class="keyword-math">math</span> <span class="keyword-import">import</span> <span class="keyword-asterisk">*</span>
+                                                <span class="comment"># Definición de la función f(x)</span>
+                                                <span class="keyword-def">def</span> <span class="function-name">f</span>(x):
+                                                    <span class="keyword-return">return</span> <span class="function-name">e</span>**x + <span class="function-name">sin</span>(2*x) - 2
+                                                <span class="comment"># Implementación del Método de Bisección</span>
+                                                <span class="keyword-def">def</span> <span class="function-name">MetodoBiseccion</span>(a, b, tol):
+                                                    m1 = a
+                                                    m = b
+                                                    k = 0
+                                                    <span class="comment"># Verificar si el producto de f(a) y f(b) es mayor que cero (no hay cambio de signo)</span>
+                                                    <span class="keyword-if">if</span> f(a) * f(b) > 0:
+                                                        <span class="print-content">print('No se encuentra una raíz en el intervalo')</span>
+                                                    <span class="keyword-while">while</span> abs(((m1 - m) / m) * 100) > tol:
+                                                        m1 = m
+                                                        m = (a + b) / 2
+                                                        <span class="comment"># Actualizar a y b basado en el cambio de signo</span>
+                                                        <span class="keyword-if">if</span> f(a) * f(m) < 0:
+                                                            b = m
+                                                        <span class="keyword-if">if</span> f(m) * f(b) < 0:
+                                                            a = m
+                                                        <span class="comment"># Imprimir el intervalo actual</span>
+                                                        <span class="print-content">print('El intervalo es [', a, ',', b, ']')</span>
+                                                        k = k + 1
+                                                    <span class="comment"># Imprimir la aproximación de la raíz y el número de iteraciones</span>
+                                                    <span class="print-content">print('X', k, '=', m, ' es una aproximación')</span>
+                                                <span class="comment"># Llamada a la función MetodoBiseccion con valores iniciales</span>
+                                                <span class="function-name">MetodoBiseccion</span>(<span class="number">0</span>, <span class="number">1</span>, <span class="number">10</span>**(-<span class="number">10</span>))
+                                            </code></pre>
+
+                                            <h4>Resutlados del codigo</h4>
+                                            <pre><code>
+                                                El intervalo es [ 0 , 0.5 ]
+                                                El intervalo es [ 0.25 , 0.5 ]
+                                                El intervalo es [ 0.25 , 0.375 ]
+                                                El intervalo es [ 0.3125 , 0.375 ]
+                                                El intervalo es [ 0.3125 , 0.34375 ]
+                                                El intervalo es [ 0.328125 , 0.34375 ]
+                                                El intervalo es [ 0.328125 , 0.3359375 ]
+                                                El intervalo es [ 0.328125 , 0.33203125 ]
+                                                El intervalo es [ 0.328125 , 0.330078125 ]
+                                                El intervalo es [ 0.328125 , 0.3291015625 ]
+                                                El intervalo es [ 0.32861328125 , 0.3291015625 ]
+                                                El intervalo es [ 0.32861328125 , 0.328857421875 ]
+                                                El intervalo es [ 0.32861328125 , 0.3287353515625 ]
+                                                El intervalo es [ 0.32861328125 , 0.32867431640625 ]
+                                                El intervalo es [ 0.32861328125 , 0.328643798828125 ]
+                                                El intervalo es [ 0.32861328125 , 0.3286285400390625 ]
+                                                El intervalo es [ 0.32862091064453125 , 0.3286285400390625 ]      <pre></code>
+
+                                                    <h4>Graficación</h4>
+                                                    <img src="../Juan/assets/img/Biseccion.jpg" alt="">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- end product section -->
+    <!-- footer -->
+    <div class="footer-area" style="padding: 50px;">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3 col-md-6">
+                    <div class="footer-box about-widget">
+                        <h2 class="widget-title">Datos del alumno:</h2>
+                        <p>Universidad Autonoma de Baja California Sur.</p>
+                        <p>Nombre: Juan Carlos Goena Amador.</p>
+                        <p>Carrera: Bioingeniería en Acuacultura.</p>
+                        <p>Semestre: 5to Semestre.</p>
+                        <p>Materia: Métodos Numéricos.</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-3">
+                    <div class="footer-box get-in-touch text-right">
+                        <!-- Agrega el estilo CSS para la imagen -->
+                        <img src="../Juan/assets/img/logo_carrera-removebg-preview.png" alt="" style="max-width: 200px;">
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-3">
+                    <div class="footer-box get-in-touch">
+                        <!-- Agrega el estilo CSS para la imagen -->
+                        <img src="../Juan/assets/img/logo_uabcs.png" alt="" style="max-width: 200px;">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+
+    <!-- end footer -->
+    <!-- jquery -->
+    <script src="assets/js/jquery-1.11.3.min.js"></script>
+    <!-- bootstrap -->
+    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+    <!-- count down -->
+    <script src="assets/js/jquery.countdown.js"></script>
+    <!-- isotope -->
+    <script src="assets/js/jquery.isotope-3.0.6.min.js"></script>
+    <!-- waypoints -->
+    <script src="assets/js/waypoints.js"></script>
+    <!-- owl carousel -->
+    <script src="assets/js/owl.carousel.min.js"></script>
+    <!-- magnific popup -->
+    <script src="assets/js/jquery.magnific-popup.min.js"></script>
+    <!-- mean menu -->
+    <script src="assets/js/jquery.meanmenu.min.js"></script>
+    <!-- sticker js -->
+    <script src="assets/js/sticker.js"></script>
+    <!-- main js -->
+    <script src="assets/js/main.js"></script>
+
+</body>
+
+</html>

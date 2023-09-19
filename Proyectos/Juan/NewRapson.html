@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- title -->
+    <title>Metodos Numericos</title>
+    <!-- favicon -->
+    <link rel="shortcut icon" type="image/png" href="assets/img/favicon.png">
+    <!-- google font -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Poppins:400,700&display=swap" rel="stylesheet">
+    <!-- fontawesome -->
+    <link rel="stylesheet" href="assets/css/all.min.css">
+    <!-- bootstrap -->
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+    <!-- owl carousel -->
+    <link rel="stylesheet" href="assets/css/owl.carousel.css">
+    <!-- magnific popup -->
+    <link rel="stylesheet" href="assets/css/magnific-popup.css">
+    <!-- animate css -->
+    <link rel="stylesheet" href="assets/css/animate.css">
+    <!-- mean menu css -->
+    <link rel="stylesheet" href="assets/css/meanmenu.min.css">
+    <!-- main style -->
+    <link rel="stylesheet" href="assets/css/main.css">
+    <!-- responsive -->
+    <link rel="stylesheet" href="assets/css/responsive.css">
+
+    <script src="src/js/disclaimer.js"></script>
+</head>
+<style>
+    /* Estilos para resaltar la sintaxis */
+    pre {
+        background-color: #f4f4f4;
+        padding: 10px;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        font-family: monospace;
+    }
+
+    code {
+        color: #333;
+    }
+
+    /* Estilo para la palabra "from" */
+    .keyword-from {
+        color: blue;
+    }
+
+    /* Estilo para "math", "import", y "*" */
+    .keyword-math,
+    .keyword-import,
+    .keyword-asterisk {
+        color: blue;
+    }
+
+    /* Estilo para la palabra "def" */
+    .keyword-def {
+        color: blue;
+    }
+
+    /* Estilo para los paréntesis */
+    .parentheses {
+        color: yellow;
+    }
+
+    /* Estilo para el contenido dentro de los prints */
+    .print-content {
+        color: brown;
+    }
+
+    /* Estilo para los comentarios */
+    .comment {
+        color: green;
+    }
+
+    /* Estilo para números */
+    .number {
+        color: red;
+    }
+
+    /* Estilo para "e" y "sin" */
+    .function-name {
+        color: brown;
+    }
+
+    /* Estilo para "return" */
+    .keyword-return {
+        color: blue;
+    }
+</style>
+
+<body>
+    <!--PreLoader-->
+    <div class="loader">
+        <div class="loader-inner">
+            <div class="circle"></div>
+        </div>
+    </div>
+    <!--PreLoader Ends-->
+
+    <!-- header -->
+    <div class="top-header-area" id="sticker">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 col-sm-12 text-center">
+                    <div class="main-menu-wrap">
+                        <!-- logo -->
+                        <!-- menu start -->
+                        <nav class="main-menu">
+                            <ul>
+                                <li><a href="../Juan/index.html">Inicio</a></li>
+                                <li><a href="../Juan/Biseccion.html">Biseccion</a></li>
+                                <li><a href="../Juan/Secante.html">Secante</a></li>
+                                <li><a href="../Juan/FalsaPosicion.html">FalsaPosicion</a></li>
+                                <li class="current-list-item"><a href="../Juan/NewRapson.html">New Raphson</a></li>
+                                <li><a href=""></a></li>
+                            </ul>
+                        </nav>
+
+                        <!-- menu end -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- end header -->
+
+    <style>
+        .hero-area {
+            width: 100%;
+            margin: 0;
+            /* Asegúrate de que no haya margen */
+            padding: 0;
+            /* Asegúrate de que no haya relleno */
+        }
+    </style>
+
+
+    <!-- hero area -->
+    <div class="hero-area hero-bg">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-9 offset-lg-2 text-center">
+                    <div class="hero-text">
+                        <div class="hero-text-tablecell">
+                            <p class="subtitle">Métodos Numéricos</p>
+                            <h1>Método de New Raphson</h1>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- end hero area -->
+
+    <!-- end features list section -->
+
+    <!-- product section -->
+    <div class="product-section mt-150 mb-150">
+        <div class="container">
+            <div class="row">
+                <div class="container">
+                    <div class="col-md-12">
+                        <div class="hero-area hero-bg">
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col-lg-9 offset-lg-2 text-center">
+                                        <div class="hero-text">
+                                            <div class="hero-text-tablecell">
+                                                <h1>New Raphson</h1>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="container">
+                            <div>
+                                <div>
+                                    <p></p>
+                                    <p style="color: black;">El método de Newton-Raphson, también conocido como método
+                                        de Newton, es un algoritmo numérico utilizado para encontrar aproximaciones a
+                                        las raíces de una función f(x). Este método es conocido por su rapidez de
+                                        convergencia cuando se inicia cerca de la raíz deseada. Aquí están los pasos
+                                        básicos del método de Newton-Raphson:
+                                    </p>
+
+                                    <h4>Pasos del método de Newton-Raphson:</h4>
+                                    <p>
+                                        1. Elije un punto inicial x0 en el dominio de la funciónf(x). Este punto inicial
+                                        debe estar lo más cerca posible de la raíz que se desea encontrar.
+                                    </p>
+                                    <p> 2.Calcula el valor de la función f(x0) y su derivadaf(x0) en el punto x0.
+                                    </p>
+                                    <p>
+
+                                        3.Utiliza la fórmula de Newton-Raphson para obtener una nueva
+                                        aproximación x1de la raíz:
+                                    </p>
+                                    <p>x1 = x0 - f(x0) / f'(x0)
+                                    </p>
+                                    <p>4.Evalúa la función f(x) en x1 para obtener f(x1).
+
+                                    </p>
+                                    <p>5.Determina si f(x1) es lo suficientemente cercano a cero (generalmente, se
+                                        utiliza un criterio de convergencia, como f(x1)< ϵ , donde es una pequeña
+                                            tolerancia). Si f(x1) es lo suficientemente cercano a cero, entonces has
+                                            encontrado una aproximación aceptable de la raíz y puedes detener el
+                                            proceso. Si f(x1) no es lo suficientemente cercano a cero, continúa con el
+                                            siguiente paso. </p>
+                                            <p>6.Reemplaza x0 por x1 y repite los pasos 2-5 hasta que obtengas una
+                                                aproximación aceptable de la raíz o hasta que se cumpla el criterio
+                                                de convergencia.</p>
+                                            
+
+                                            <b>"Es inapropiada o si la función tiene singularidades o puntos de
+                                                inflexión cerca de la raíz deseada. Además, es necesario calcular la
+                                                derivada de la función, lo que puede ser complicado en algunos casos. En
+                                                tales situaciones, se pueden usar métodos alternativos como el método de
+                                                la secante o el método de la falsa posición."</b>
+                                                <p></p>
+                                            <h4>Codigo de New Raphson</h4>
+                                            <pre><code>
+                                                <span class="comment"># Importar todas las funciones de la biblioteca math</span>
+                                                <span class="keyword">from</span> <span class="module">math</span> <span class="keyword">import</span> <span class="function">*</span>
+                                        
+                                                <span class="comment"># Definición de la función f(x)</span>
+                                                <span class="keyword">def</span> <span class="function">f</span>(x):
+                                                    func = <span class="function">e**x + sin(2*x) - 2</span>
+                                                    <span class="keyword">return</span> func
+                                        
+                                                <span class="comment"># Definición de la función df(x)</span>
+                                                <span class="keyword">def</span> <span class="function">df</span>(x):
+                                                    <span class="keyword">return</span> <span class="number">6*x + cos(x) - e**(x)</span>
+                                        
+                                                <span class="comment"># Implementación del Método de Newton-Raphson</span>
+                                                <span class="keyword">def</span> <span class="function">NewtonRaphson</span>(x0, tol, n):
+                                                    <span class="keyword">for</span> k <span class="keyword">in</span> <span class="function">range</span>(n):
+                                                        x1 = x0 - f(x0) / df(x0)
+                                                        <span class="comment"># Calcular el error relativo y verificar si es menor que la tolerancia</span>
+                                                        error_relativo = <span class="function">abs</span>(((x1 - x0) / x1) * <span class="number">100</span>)
+                                                        <span class="keyword">if</span> error_relativo < tol:
+                                                            <span class="function">print</span>('x', k+<span class="number">1</span>, '=', x1, end=<span class="string">' '</span>)
+                                                            <span class="function">print</span>('es una buena aproximación a la raíz')
+                                                            <span class="keyword">return</span>
+                                                        x0 = x1
+                                                        <span class="function">print</span>('x', k+<span class="number">1</span>, '=', x1)
+                                        
+                                                <span class="comment"># Llamada al MétodoNewtonRaphson con valor inicial 1, tolerancia 0.0000001 y máximo 10 iteraciones</span>
+                                                <span class="function">NewtonRaphson</span>(<span class="number">1</span>, <span class="number">0.0000001</span>, <span class="number">10</span>)
+                                            </code></pre>
+
+                                            <h4>Resutlados del codigo</h4>
+                                            <pre><code>
+                                                x 1 = 0.5741573691441746
+                                                x 2 = 0.3000566599403646
+                                                x 3 = 0.3607575412814002
+                                                x 4 = 0.3037633560217483
+                                                x 5 = 0.3559581532099333
+                                                x 6 = 0.30683451789448
+                                                x 7 = 0.35213391896934454
+                                                x 8 = 0.3094326755431815
+                                                x 9 = 0.3490032258442228
+                                                x 10 = 0.31166260188752437
+                                                <pre></code>
+
+                                                    <h4>Graficación</h4>
+                                                    <img src="../Juan/assets/img/MetodoNew.jpg"  height="100%" width="100%">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- end product section -->
+    <!-- footer -->
+    <div class="footer-area" style="padding: 50px;">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3 col-md-6">
+                    <div class="footer-box about-widget">
+                        <h2 class="widget-title">Datos del alumno:</h2>
+                        <p>Universidad Autonoma de Baja California Sur.</p>
+                        <p>Nombre: Juan Carlos Goena Amador.</p>
+                        <p>Carrera: Bioingeniería en Acuacultura.</p>
+                        <p>Semestre: 5to Semestre.</p>
+                        <p>Materia: Métodos Numéricos.</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-3">
+                    <div class="footer-box get-in-touch text-right">
+                        <!-- Agrega el estilo CSS para la imagen -->
+                        <img src="../Juan/assets/img/logo_carrera-removebg-preview.png" alt="" style="max-width: 200px;">
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-3">
+                    <div class="footer-box get-in-touch">
+                        <!-- Agrega el estilo CSS para la imagen -->
+                        <img src="../Juan/assets/img/logo_uabcs.png" alt="" style="max-width: 200px;">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+
+    <!-- end footer -->
+    <!-- jquery -->
+    <script src="assets/js/jquery-1.11.3.min.js"></script>
+    <!-- bootstrap -->
+    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+    <!-- count down -->
+    <script src="assets/js/jquery.countdown.js"></script>
+    <!-- isotope -->
+    <script src="assets/js/jquery.isotope-3.0.6.min.js"></script>
+    <!-- waypoints -->
+    <script src="assets/js/waypoints.js"></script>
+    <!-- owl carousel -->
+    <script src="assets/js/owl.carousel.min.js"></script>
+    <!-- magnific popup -->
+    <script src="assets/js/jquery.magnific-popup.min.js"></script>
+    <!-- mean menu -->
+    <script src="assets/js/jquery.meanmenu.min.js"></script>
+    <!-- sticker js -->
+    <script src="assets/js/sticker.js"></script>
+    <!-- main js -->
+    <script src="assets/js/main.js"></script>
+
+</body>
+
+</html>

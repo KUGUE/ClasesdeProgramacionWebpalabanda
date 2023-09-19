@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- title -->
+    <title>Metodos Numericos</title>
+    <!-- favicon -->
+    <link rel="shortcut icon" type="image/png" href="assets/img/favicon.png">
+    <!-- google font -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Poppins:400,700&display=swap" rel="stylesheet">
+    <!-- fontawesome -->
+    <link rel="stylesheet" href="assets/css/all.min.css">
+    <!-- bootstrap -->
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+    <!-- owl carousel -->
+    <link rel="stylesheet" href="assets/css/owl.carousel.css">
+    <!-- magnific popup -->
+    <link rel="stylesheet" href="assets/css/magnific-popup.css">
+    <!-- animate css -->
+    <link rel="stylesheet" href="assets/css/animate.css">
+    <!-- mean menu css -->
+    <link rel="stylesheet" href="assets/css/meanmenu.min.css">
+    <!-- main style -->
+    <link rel="stylesheet" href="assets/css/main.css">
+    <!-- responsive -->
+    <link rel="stylesheet" href="assets/css/responsive.css">
+
+    <script src="src/js/disclaimer.js"></script>
+</head>
+<style>
+    /* Estilos para resaltar la sintaxis */
+    pre {
+        background-color: #f4f4f4;
+        padding: 10px;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        font-family: monospace;
+    }
+
+    code {
+        color: #333;
+    }
+
+    /* Estilo para la palabra "from" */
+    .keyword-from {
+        color: blue;
+    }
+
+    /* Estilo para "math", "import", y "*" */
+    .keyword-math,
+    .keyword-import,
+    .keyword-asterisk {
+        color: blue;
+    }
+
+    /* Estilo para la palabra "def" */
+    .keyword-def {
+        color: blue;
+    }
+
+    /* Estilo para los paréntesis */
+    .parentheses {
+        color: yellow;
+    }
+
+    /* Estilo para el contenido dentro de los prints */
+    .print-content {
+        color: brown;
+    }
+
+    /* Estilo para los comentarios */
+    .comment {
+        color: green;
+    }
+
+    /* Estilo para números */
+    .number {
+        color: red;
+    }
+
+    /* Estilo para "e" y "sin" */
+    .function-name {
+        color: brown;
+    }
+
+    /* Estilo para "return" */
+    .keyword-return {
+        color: blue;
+    }
+</style>
+
+<body>
+    <!--PreLoader-->
+    <div class="loader">
+        <div class="loader-inner">
+            <div class="circle"></div>
+        </div>
+    </div>
+    <!--PreLoader Ends-->
+
+    <!-- header -->
+    <div class="top-header-area" id="sticker">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 col-sm-12 text-center">
+                    <div class="main-menu-wrap">
+                        <!-- logo -->
+                        <!-- menu start -->
+                        <nav class="main-menu">
+                            <ul>
+                                <li><a href="../Juan/index.html">Inicio</a></li>
+                                <li><a href="../Juan/Biseccion.html">Biseccion</a></li>
+                                <li class="current-list-item"><a href="../Juan/Secante.html">Secante</a></li>
+                                <li><a href="../Juan/FalsaPosicion.html">FalsaPosicion</a></li>
+                                <li><a href="../Juan/NewRapson.html">New Raphson</a></li>
+                                <li><a href=""></a></li>
+                            </ul>
+                        </nav>
+
+                        <!-- menu end -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- end header -->
+
+    <style>
+        .hero-area {
+            width: 100%;
+            margin: 0;
+            /* Asegúrate de que no haya margen */
+            padding: 0;
+            /* Asegúrate de que no haya relleno */
+        }
+    </style>
+
+
+    <!-- hero area -->
+    <div class="hero-area hero-bg">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-9 offset-lg-2 text-center">
+                    <div class="hero-text">
+                        <div class="hero-text-tablecell">
+                            <p class="subtitle">Métodos Numéricos</p>
+                            <h1>Método Secante</h1>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- end hero area -->
+
+
+    <!-- end features list section -->
+
+    <!-- product section -->
+    <div class="product-section mt-150 mb-150">
+        <div class="container">
+            <div class="row">
+                <div class="container">
+                    <div class="col-md-12">
+                        <div class="hero-area hero-bg">
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col-lg-9 offset-lg-2 text-center">
+                                        <div class="hero-text">
+                                            <div class="hero-text-tablecell">
+                                                <h1>Secante</h1>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="container">
+                            <div>
+                                <div>
+                                    <p></p>
+                                    <p style="color: black;">El método de la secante es un algoritmo numérico utilizado
+                                        para encontrar aproximaciones a las raíces de una función f(x). A diferencia del
+                                        método de la bisección, el método de la secante no requiere que la función
+                                        cambie de signo en el intervalo inicial. En su lugar, utiliza una secuencia de
+                                        puntos para estimar la raíz. Aquí tienes una descripción básica del
+                                        método de la secante:</p>
+
+                                    <h4>Pasos del método de la secante</h4>
+                                    <p>
+                                        1.Elije dos puntos iniciales x0 y x1 en el dominio de la función f(x). Estos
+                                        puntos iniciales no necesitan cumplir ninguna condición especial, pero deben
+                                        estar lo suficientemente cerca de la raíz que se desea encontrar.
+                                    </p>
+                                    <P>2.Calcula el valor de la función en estos dos puntos: f(x0)y f(x1).</P>
+                                    <p>
+                                        3.Usa estos dos puntos para aproximar la pendiente de la función en el intervalo
+                                        [x0,x1] mediante la fórmula de la recta secante:
+
+                                    <p> m= f(x1)- f(x0)/ x1 - x0 </p>
+                                    ​
+                                    4.Calcula el valor de la siguiente aproximación de la raíz x2 utilizando la
+                                    pendiente
+                                    m y el punto x 1 en la ecuación de la recta:
+                                    <p></p>
+                                    <p> x2 = x1 - f(x1) / m</p>
+                                    </p>
+
+                                    <p>5.Actualiza los valores de x0 y x1 para preparar la siguiente iteración:
+
+                                        x0 = x1
+
+                                        x1 = x2
+
+                                    </p>
+                                    <P> 6.Repite los pasos 2-5 hasta que obtengas una aproximación aceptable de la raíz,
+                                        o
+                                        hasta que se cumpla un criterio de convergencia predefinido (por ejemplo, cuando
+                                        f(xn) es lo suficientemente pequeño).</P>
+
+                                    <p>El método de la secante es una técnica iterativa que se acerca a la raíz de
+                                        manera gradual. A medida que se repiten los pasos, la aproximación de la raíz
+                                        mejora. Este método es especialmente útil cuando no se conoce la derivada de la
+                                        función o cuando encontrar la derivada es complicado. Sin embargo, su
+                                        convergencia no siempre es tan rápida como algunos otros métodos, como el método
+                                        de Newton-Raphson, pero aún así puede ser una herramienta eficaz para encontrar
+                                        raíces de funciones no lineales.</p>
+
+                                    <h4>Codigo Secante</h4>
+                                    <pre><code>
+                                        <span class="comment"># Definición de la función MetodoSecante</span>
+                                        <span class="keyword">def</span> <span class="function">MetodoSecante</span>(f, x0, x1, tol):
+                                            error = <span class="number">1e3</span>  <span class="comment"># Inicialización del error con un valor grande.</span>
+                                            n = <span class="number">0</span>  <span class="comment"># Contador de iteraciones.</span>
+                                            x2 = <span class="number">0</span>  <span class="comment"># Variable para almacenar la aproximación de la raíz.</span>
+                                            <span class="comment"># Bucle principal que se ejecuta hasta que el error sea menor que la tolerancia.</span>
+                                            <span class="keyword">while</span> error > tol:
+                                                <span class="comment"># Fórmula del método de la secante para encontrar x2.</span>
+                                                x2 = x1 - ((x0 - x1) / (f(x0) - f(x1))) * f(x1)
+                                                <span class="comment"># Actualizar los valores de x0 y x1 para la siguiente iteración.</span>
+                                                x0 = x1
+                                                x1 = x2
+                                                <span class="comment"># Calcular el error absoluto en f(x2).</span>
+                                                error = abs(f(x2))
+                                                <span class="comment"># Incrementar el contador de iteraciones.</span>
+                                                n += <span class="number">1</span>
+                                            <span class="comment"># Imprimir la solución aproximada y el número de iteraciones.</span>
+                                            print(<span class="string">"Solución aproximada {:.10f}".format(x2)</span>)
+                                            print(<span class="string">"Número de iteraciones: {:d}".format(n)</span>)
+                                        
+                                        <span class="comment"># Definición de la función f(x) que se desea encontrar la raíz.</span>
+                                        f = <span class="keyword">lambda</span> x: <span class="function">e**x + sin(2*x) - 2</span>
+                                        
+                                        <span class="comment"># Llamada al MétodoSecante con valores iniciales.</span>
+                                        <span class="function">MetodoSecante</span>(f, <span class="number">1</span>, <span class="number">2</span>, <span class="number">1e-7</span>)
+                                    </code></pre>
+
+                                    <h4>Resutlados del codigo</h4>
+                                    <pre><code>
+                                        Solución aproximada 0.3286253636
+                                        Número de iteraciones: 5   <pre></code>
+
+                                                    <h4>Graficación</h4>
+                                                    <img src="../Juan/assets/img/secante.jpg"  width="900px">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- end product section -->
+    <!-- footer -->
+    <div class="footer-area" style="padding: 50px;">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3 col-md-6">
+                    <div class="footer-box about-widget">
+                        <h2 class="widget-title">Datos del alumno:</h2>
+                        <p>Universidad Autonoma de Baja California Sur.</p>
+                        <p>Nombre: Juan Carlos Goena Amador.</p>
+                        <p>Carrera: Bioingeniería en Acuacultura.</p>
+                        <p>Semestre: 5to Semestre.</p>
+                        <p>Materia: Métodos Numéricos.</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-3">
+                    <div class="footer-box get-in-touch text-right">
+                        <!-- Agrega el estilo CSS para la imagen -->
+                        <img src="../Juan/assets/img/logo_carrera-removebg-preview.png" alt="" style="max-width: 200px;">
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-3">
+                    <div class="footer-box get-in-touch">
+                        <!-- Agrega el estilo CSS para la imagen -->
+                        <img src="../Juan/assets/img/logo_uabcs.png" alt="" style="max-width: 200px;">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+
+    <!-- end footer -->
+    <!-- jquery -->
+    <script src="assets/js/jquery-1.11.3.min.js"></script>
+    <!-- bootstrap -->
+    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+    <!-- count down -->
+    <script src="assets/js/jquery.countdown.js"></script>
+    <!-- isotope -->
+    <script src="assets/js/jquery.isotope-3.0.6.min.js"></script>
+    <!-- waypoints -->
+    <script src="assets/js/waypoints.js"></script>
+    <!-- owl carousel -->
+    <script src="assets/js/owl.carousel.min.js"></script>
+    <!-- magnific popup -->
+    <script src="assets/js/jquery.magnific-popup.min.js"></script>
+    <!-- mean menu -->
+    <script src="assets/js/jquery.meanmenu.min.js"></script>
+    <!-- sticker js -->
+    <script src="assets/js/sticker.js"></script>
+    <!-- main js -->
+    <script src="assets/js/main.js"></script>
+
+</body>
+
+</html>

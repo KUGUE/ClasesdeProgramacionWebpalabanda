@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- title -->
+    <title>Metodos Numericos</title>
+    <!-- favicon -->
+    <link rel="shortcut icon" type="image/png" href="assets/img/favicon.png">
+    <!-- google font -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Poppins:400,700&display=swap" rel="stylesheet">
+    <!-- fontawesome -->
+    <link rel="stylesheet" href="assets/css/all.min.css">
+    <!-- bootstrap -->
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+    <!-- owl carousel -->
+    <link rel="stylesheet" href="assets/css/owl.carousel.css">
+    <!-- magnific popup -->
+    <link rel="stylesheet" href="assets/css/magnific-popup.css">
+    <!-- animate css -->
+    <link rel="stylesheet" href="assets/css/animate.css">
+    <!-- mean menu css -->
+    <link rel="stylesheet" href="assets/css/meanmenu.min.css">
+    <!-- main style -->
+    <link rel="stylesheet" href="assets/css/main.css">
+    <!-- responsive -->
+    <link rel="stylesheet" href="assets/css/responsive.css">
+
+    <script src="src/js/disclaimer.js"></script>
+</head>
+<style>
+    /* Estilos para resaltar la sintaxis */
+    pre {
+        background-color: #f4f4f4;
+        padding: 10px;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        font-family: monospace;
+    }
+
+    code {
+        color: #333;
+    }
+
+    /* Estilo para la palabra "from" */
+    .keyword-from {
+        color: blue;
+    }
+
+    /* Estilo para "math", "import", y "*" */
+    .keyword-math,
+    .keyword-import,
+    .keyword-asterisk {
+        color: blue;
+    }
+
+    /* Estilo para la palabra "def" */
+    .keyword-def {
+        color: blue;
+    }
+
+    /* Estilo para los paréntesis */
+    .parentheses {
+        color: yellow;
+    }
+
+    /* Estilo para el contenido dentro de los prints */
+    .print-content {
+        color: brown;
+    }
+
+    /* Estilo para los comentarios */
+    .comment {
+        color: green;
+    }
+
+    /* Estilo para números */
+    .number {
+        color: red;
+    }
+
+    /* Estilo para "e" y "sin" */
+    .function-name {
+        color: brown;
+    }
+
+    /* Estilo para "return" */
+    .keyword-return {
+        color: blue;
+    }
+</style>
+
+<body>
+    <!--PreLoader-->
+    <div class="loader">
+        <div class="loader-inner">
+            <div class="circle"></div>
+        </div>
+    </div>
+    <!--PreLoader Ends-->
+
+    <!-- header -->
+    <div class="top-header-area" id="sticker">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 col-sm-12 text-center">
+                    <div class="main-menu-wrap">
+                        <!-- logo -->
+                        <!-- menu start -->
+                        <nav class="main-menu">
+                            <ul>
+                                <li><a href="../Juan/index.html">Inicio</a></li>
+                                <li><a href="../Juan/Biseccion.html">Biseccion</a></li>
+                                <li><a href="../Juan/Secante.html">Secante</a></li>
+                                <li class="current-list-item"><a href="../Juan/FalsaPosicion.html">Falsa Posición</a>
+                                </li>
+                                <li><a href="../Juan/NewRapson.html">New Raphson</a></li>
+                                <li><a href=""></a></li>
+                            </ul>
+                        </nav>
+
+                        <!-- menu end -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- end header -->
+
+    <style>
+        .hero-area {
+            width: 100%;
+            margin: 0;
+            /* Asegúrate de que no haya margen */
+            padding: 0;
+            /* Asegúrate de que no haya relleno */
+        }
+    </style>
+
+
+    <!-- hero area -->
+    <div class="hero-area hero-bg">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-9 offset-lg-2 text-center">
+                    <div class="hero-text">
+                        <div class="hero-text-tablecell">
+                            <p class="subtitle">Métodos Numéricos</p>
+                            <h1>Método de Falsa Posición</h1>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- end hero area -->
+
+
+    <!-- end features list section -->
+
+    <!-- product section -->
+    <div class="product-section mt-150 mb-150">
+        <div class="container">
+            <div class="row">
+                <div class="container">
+                    <div class="col-md-12">
+                        <div class="hero-area hero-bg">
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col-lg-9 offset-lg-2 text-center">
+                                        <div class="hero-text">
+                                            <div class="hero-text-tablecell">
+                                                <h1>Falsa Posición</h1>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="container">
+                            <div>
+                                <div>
+                                    <p></p>
+                                    <p style="color: black;">El método de la falsa posición, también conocido como
+                                        método de interpolación lineal, es un algoritmo numérico utilizado para
+                                        encontrar aproximaciones a las raíces de una función f(x). Este método combina
+                                        aspectos del método de la bisección con la interpolación lineal para converger
+                                        más rápidamente hacia la raíz deseada. Aquí están los pasos básicos del método
+                                        de la falsa posición:
+                                    </p>
+                                    <h4>Pasos del método de la falsa posición:</h4>
+                                    <P>
+                                        1.Elije dos puntos iniciales, x0 y x1, en el dominio de la función f(x). Estos
+                                        dos puntos deben cumplir con la condición de que f(x0)y f(x1) tengan signos
+                                        opuestos (es decir, uno es positivo y el otro es negativo), lo que garantiza que
+                                        haya al menos una raíz en el intervalo [x0 , x1].</p>
+
+                                    <p>
+                                        2.Calcula la intersección de la línea recta que une los puntos,(x0, f(x0)
+                                        (x1,f(x1)) con el eje x. Esta intersección es una aproximación de la raíz y se
+                                        calcula utilizando la ecuación de la recta:
+                                        x2 = x1 - f(x1) * (x1- x0) / f(x1) - fx0)
+
+                                    </p>
+                                    <p> 3.Evalúa la función f(x) en x2 para obtener f(x2). </p>
+                                        
+                                      <p> 4.Determina si f(x2) es igual a cero (en cuyo caso, x2 es una raíz exacta) o si
+                                        f(x2) tiene el mismo signo que f(x0) o f(x1).
+                                        Si f(x2) es igual a cero, entonces has encontrado una raíz exacta y puedes
+                                        detener el proceso.
+                                        Si f(x2) tiene el mismo signo que f(x0), la raíz se encuentra en el intervalo
+                                        [x2,x1], por lo que debes reemplazar x0 por Si f(x2) tiene el mismo signo que
+                                        f(x1), la raíz se encuentra en el intervalo [x0 ,x2 ], por lo que debes
+                                        reemplazar x1 por x2.</p>
+                                    <p>
+                                        5.Repite los pasos 2-4 hasta que obtengas una aproximación aceptable de la raíz
+                                        o hasta que se cumpla un criterio de convergencia predefinido (por ejemplo,
+                                        cuando f(xn) es lo suficientemente pequeño).
+
+                                    </p>
+                                   
+                                    <b>
+                                       " El método de la falsa posición es una técnica iterativa que mejora gradualmente
+                                        las aproximaciones de la raíz a medida que se repiten los pasos. Aunque puede
+                                        converger más rápidamente que el método de la bisección en algunos casos, no
+                                        garantiza la convergencia monótona y puede ser menos estable en presencia de
+                                        funciones con oscilaciones abruptas. Sin embargo, es útil cuando se requiere un
+                                        método sencillo que no dependa de la derivada de la función."</b>
+                                        <p></p>
+
+                                    <h4>Codigo de Falsa Posición</h4>
+                                    <pre><code>
+                                        <span class="comment"># Importación de bibliotecas</span>
+                                        <span class="keyword">from</span> <span class="module">math</span> <span class="keyword">import</span> <span class="function">e</span>, <span class="function">sin</span>
+                                
+                                        <span class="comment"># Definición de la función MetodoFalsaPosicion</span>
+                                        <span class="keyword">def</span> <span class="function">MetodoFalsaPosicion</span>(funcion, a, b, iteraciones, error_deseado):
+                                            <span class="comment"># Inicializamos los valores iniciales</span>
+                                            x0 = a
+                                            x1 = b
+                                            contador = <span class="number">0</span>
+                                            <span class="keyword">while</span> contador < iteraciones:
+                                                contador += <span class="number">1</span>
+                                                <span class="comment"># Calcular f(x0) y f(x1)</span>
+                                                f_x0 = funcion(x0)
+                                                f_x1 = funcion(x1)
+                                                <span class="comment"># Calcular x2 usando el método de la falsa posición</span>
+                                                x2 = x1 - (f_x1 * (x0 - x1)) / (f_x0 - f_x1)
+                                                <span class="comment"># Calcular el error relativo</span>
+                                                error_calculado = abs((x2 - x1) / x2) * <span class="number">100</span>
+                                                <span class="comment"># Verificar si el error es menor que el error deseado</span>
+                                                <span class="keyword">if</span> error_calculado < error_deseado:
+                                                    solucion = x2
+                                                    <span class="function">print</span>('La solución aproximada es: {:.3f}'.<span class="function">format</span>(solucion))
+                                                    <span class="function">print</span>('Encontrada en: {:.0f}'.<span class="function">format</span>(contador) + ' iteraciones')
+                                                    <span class="function">print</span>('Con un error relativo de: {:.3f}'.<span class="function">format</span>(error_calculado) + '%')
+                                                    <span class="keyword">return</span>
+                                                <span class="comment"># Actualizar x0 y x1 para la siguiente iteración</span>
+                                                x0 = x1
+                                                x1 = x2
+                                            <span class="comment"># Si se llega al límite de iteraciones sin encontrar una solución dentro de la tolerancia</span>
+                                            <span class="function">print</span>('No existe solución en ese intervalo')
+                                
+                                        <span class="comment"># Llamada al MétodoFalsaPosicion con la función e^x + sin(2x) - 2 en el intervalo [0, 1]</span>
+                                        <span class="function">MetodoFalsaPosicion</span>(<span class="function">lambda</span> x: <span class="function">e**x + sin(2*x) - 2</span>, <span class="number">0</span>, <span class="number">1</span>, <span class="number">20</span>, <span class="number">0.005</span>)
+                                    </code></pre>
+
+                                    <h4>Resutlados del codigo</h4>
+                                    <pre><code>
+                                        La solución aproximada es: 0.329
+                                        Encontrada en: 5 iteraciones
+                                        Con un error relativo de: 0.000%    <pre></code>
+
+                                                    <h4>Graficación</h4>
+                                                    <img src="../Juan/assets/img/falsaposicionn.jpg" alt="">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- end product section -->
+    <!-- footer -->
+    <div class="footer-area" style="padding: 50px;">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3 col-md-6">
+                    <div class="footer-box about-widget">
+                        <h2 class="widget-title">Datos del alumno:</h2>
+                        <p>Universidad Autonoma de Baja California Sur.</p>
+                        <p>Nombre: Juan Carlos Goena Amador.</p>
+                        <p>Carrera: Bioingeniería en Acuacultura.</p>
+                        <p>Semestre: 5to Semestre.</p>
+                        <p>Materia: Métodos Numéricos.</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-3">
+                    <div class="footer-box get-in-touch text-right">
+                        <!-- Agrega el estilo CSS para la imagen -->
+                        <img src="../Juan/assets/img/logo_carrera-removebg-preview.png" alt="" style="max-width: 200px;">
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-3">
+                    <div class="footer-box get-in-touch">
+                        <!-- Agrega el estilo CSS para la imagen -->
+                        <img src="../Juan/assets/img/logo_uabcs.png" alt="" style="max-width: 200px;">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+
+    <!-- end footer -->
+    <!-- jquery -->
+    <script src="assets/js/jquery-1.11.3.min.js"></script>
+    <!-- bootstrap -->
+    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+    <!-- count down -->
+    <script src="assets/js/jquery.countdown.js"></script>
+    <!-- isotope -->
+    <script src="assets/js/jquery.isotope-3.0.6.min.js"></script>
+    <!-- waypoints -->
+    <script src="assets/js/waypoints.js"></script>
+    <!-- owl carousel -->
+    <script src="assets/js/owl.carousel.min.js"></script>
+    <!-- magnific popup -->
+    <script src="assets/js/jquery.magnific-popup.min.js"></script>
+    <!-- mean menu -->
+    <script src="assets/js/jquery.meanmenu.min.js"></script>
+    <!-- sticker js -->
+    <script src="assets/js/sticker.js"></script>
+    <!-- main js -->
+    <script src="assets/js/main.js"></script>
+
+</body>
+
+</html>
