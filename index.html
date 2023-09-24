@@ -1,61 +1,448 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
-  <meta charset='utf-8'>
-  <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Portafolio</title>
-  <script src="src/js/disclaimer.js"></script>
-  <link rel="stylesheet" href="./style.css">
-  
-  <style>
-    /* Estilo para la animación de transición */
-    .fade-out {
-      opacity: 1;
-      transition: opacity 0.5s ease-in-out;
-    }
-    
-    .fade-out.active {
-      opacity: 0;
-    }
-  </style>
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/fontawesome.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/glightbox/dist/css/glightbox.min.css" />
+  <script src="https://cdn.jsdelivr.net/gh/mcstudios/glightbox/dist/js/glightbox.min.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap"
+    rel="stylesheet">
+</head>
 
 <body>
-  <div class="container">
-
-
-    <div id="marketing" class="section" onclick="redirectToIndex('Proyectos')">
-      <div class="content">
-        <h1>Proyectos</h1>
+  <!-- ////////////////////////////////////////////////////////////////////////////////////////
+                               START SECTION 1 - THE NAVBAR SECTION  
+/////////////////////////////////////////////////////////////////////////////////////////////-->
+  <nav class="navbar navbar-expand-lg navbar-dark menu shadow fixed-top">
+    <div class="container">
+      <a class="navbar-brand" href="">
+        <img src="../images/logo.png" alt="logo image" style="height: 50px;">
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item"><a class="nav-link active" aria-current="page" href="index.html">Inicio</a></li>
+          <li class="nav-item"><a class="nav-link" href="#services">Servicios</a></li>
+          <li class="nav-item"><a class="nav-link" href="#faq">Preguntas Frecuentes</a></li>
+          <li class="nav-item"><a class="nav-link" href="#portfolio">Portfolio</a></li>
+          <li class="nav-item"><a class="nav-link" href="#contact">Contactame</a>
+          </li>
+        </ul>
+        <a  href="https://api.whatsapp.com/send?phone=6121681994&text=Buenas%20tardes%20quería%20saber%20más%20sobre%20tus%20servicios%20como%20desarrollador" type="button" class="rounded-pill btn-rounded">
+          6121681994
+          <span >
+            <i style="padding-left: 13px" class="fas fa-phone-alt" ></i> 
+          </span>
+        </a>
+        
       </div>
-      <div class="overlay"></div>
+    </div>
+  </nav>
+
+  <!-- /////////////////////////////////////////////////////////////////////////////////////////////////
+                            START SECTION 2 - THE INTRO SECTION  
+/////////////////////////////////////////////////////////////////////////////////////////////////////-->
+
+  <section id="home" class="intro-section">
+    <div class="container">
+      <div class="row align-items-center text-white">
+        <!-- START THE CONTENT FOR THE INTRO  -->
+        <div class="col-md-6 intros text-start">
+          <section class="portfolio-intro">
+            <h2 class="display-2">
+              <span class="display-2--intro">¡Hola! Mi nombre es Emmanuel </span>
+              <span class="display-2--description lh-base">
+                Soy un apasionado desarrollador de software en proceso de graduación.
+              </span>
+            </h2>
+          </section>
+          <button type="button" id="verCV" class="rounded-pill btn-rounded">Ver CV
+            <span><i class="fas fa-arrow-down"></i></span>
+          </button>
+
+        </div>
+        <!-- START THE CONTENT FOR THE VIDEO -->
+        <div class="col-md-6 intros text-end">
+          <div class="video-box">
+            <img src="../images/arts/intro-section-illustration.png" alt="video illutration" class="img-fluid"
+              style="align-items: center;">
+            <a href="#" class="glightbox position-absolute top-50 start-50 translate-middle">
+
+
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+      <path fill="#ffffff" fill-opacity="1"
+        d="M0,160L48,176C96,192,192,224,288,208C384,192,480,128,576,133.3C672,139,768,213,864,202.7C960,192,1056,96,1152,74.7C1248,53,1344,107,1392,133.3L1440,160L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z">
+      </path>
+    </svg>
+  </section>
+
+
+
+  <!-- //////////////////////////////////////////////////////////////////////////////////////////////
+                         START SECTION 4 - THE SERVICES  
+///////////////////////////////////////////////////////////////////////////////////////////////////-->
+  <section id="services" class="services">
+    <div class="container">
+      <div class="row text-center">
+        <h1 class="display-3 fw-bold">Mis Servicios</h1>
+        <div class="heading-line mb-1"></div>
+      </div>
+
     </div>
 
-    <div id="technology" class="section" onclick="redirectToIndex('Juegos')">
-      <div class="content">
-        <h1>Juegos</h1>
+    <!-- START THE CONTENT FOR THE SERVICES  -->
+    <div class="container">
+      <!-- START THE MARKETING CONTENT  -->
+      <div class="row">
+        <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 services mt-4">
+          <div class="services__content">
+            <div class="icon d-block fas fa-paper-plane"></div>
+            <h3 class="display-3--title mt-1">Community Manager</h3>
+            <p class="lh-lg">
+              Potenciando tu presencia en redes sociales con contenido cautivador y estratégico. Como creador de
+              publicaciones, transformo ideas en impacto digital para impulsar tu marca hacia el éxito.
+            </p>
+          </div>
+        </div>
+        <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 services mt-4 text-end">
+          <div class="services__pic">
+            <img src="../images/services/service-1.png" alt="marketing illustration" class="img-fluid">
+          </div>
+        </div>
       </div>
-      <div class="overlay"></div>
+      <!-- START THE WEB DEVELOPMENT CONTENT  -->
+      <div class="row">
+        <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 services mt-4 text-start">
+          <div class="services__pic">
+            <img src="../images/services/service-2.png" alt="web development illustration" class="img-fluid">
+          </div>
+        </div>
+        <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 services mt-4">
+          <div class="services__content">
+            <div class="icon d-block fas fa-code"></div>
+            <h3 class="display-3--title mt-1">Desarrollador web</h3>
+            <p class="lh-lg">
+              Como programador web, mi experiencia y pasión se traducen en sitios web de alto rendimiento y diseño
+              atractivo. Domino diversas tecnologías, desde HTML5, CSS3 y Javascript
+            </p>
+          </div>
+        </div>
+      </div>
+      <!-- START THE CLOUD HOSTING CONTENT  -->
+      <div class="row">
+        <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 services mt-4">
+          <div class="services__content">
+            <div class="icon d-block fas fa-solid fa-palette"></div>
+            <h3 class="display-3--title mt-1">UI/UX DESING</h3>
+            <p class="lh-lg">
+              Diseño interfaces de usuario intuitivas y atractivas que no solo se ven bien, sino que también funcionan
+              de manera eficiente. Mi atención meticulosa a los detalles y la investigación de usuarios garantizan que
+              los productos que diseño sean altamente usables y aporten valor a los usuarios finales.
+            </p>
+          </div>
+        </div>
+        <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 services mt-4 text-end">
+          <div class="services__pic">
+            <img src="../images/services/service-3.png" alt="cloud hosting illustration" class="img-fluid">
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- /////////////////////////////////////////////////////////////////////////////////////////////////
+                       START SECTION 6 - THE FAQ 
+//////////////////////////////////////////////////////////////////////////////////////////////////////-->
+  <section id="faq" class="faq">
+    <div class="container">
+      <div class="row text-center">
+        <h1 class="display-3 fw-bold text-uppercase">Preguntas frecuentes</h1>
+        <div class="heading-line"></div>
+        <p class="lead">Explora mis respuestas a las preguntas más comunes sobre mi experiencia en desarrollo de
+          software. Aquí encontrarás información sobre mis habilidades, tecnologías, y ejemplos de proyectos anteriores.
+          Si necesitas más detalles, no dudes en contactarme.</p>
+      </div>
+      <!-- ACCORDION CONTENT  -->
+      <div class="row mt-5">
+        <div class="col-md-12">
+          <div class="accordion" id="accordionExample">
+            <!-- ACCORDION ITEM 1 -->
+            <div class="accordion-item shadow mb-3">
+              <h2 class="accordion-header" id="headingOne">
+                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne"
+                  aria-expanded="true" aria-controls="collapseOne">
+                  ¿Qué herramientas y tecnologías utilizas en tu trabajo?
+                </button>
+              </h2>
+              <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne"
+                data-bs-parent="#accordionExample">
+                <div class="accordion-body">
+                  En mi proceso de diseño, hago uso de herramientas especializadas para asegurar la calidad y eficiencia
+                  en mis proyectos. Utilizo Adobe Photoshop para la creación y edición de elementos gráficos, lo que me
+                  permite dar vida a conceptos creativos y diseñar detalles visuales impactantes. Además, empleo Figma
+                  para el desarrollo de interfaces, lo que facilita la colaboración en tiempo real con equipos de diseño
+                  y desarrollo, y garantiza una implementación fluida de las interfaces diseñadas.
+                </div>
+              </div>
+            </div>
+            <!-- ACCORDION ITEM 2 -->
+            <div class="accordion-item shadow mb-3">
+              <h2 class="accordion-header" id="headingTwo">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                  data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                  ¿Que lenguajes dominas ?
+                </button>
+              </h2>
+              <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo"
+                data-bs-parent="#accordionExample">
+                <div class="accordion-body">
+                  <strong> En cuanto a los lenguajes que domino, los principales son:</strong>
+
+                  <p> <strong>Java:</strong> Mi experiencia en Java abarca desde el desarrollo de aplicaciones de
+                    escritorio hasta
+                    aplicaciones móviles y servicios web.</p>
+                  <p> <strong>Dart:</strong>Utilizo Dart, especialmente en combinación con Flutter, para crear
+                    aplicaciones móviles
+                    atractivas y eficientes con una única base de código.</p>
+                  <p> <strong>Javascript:</strong>: Trabajo con JavaScript para el desarrollo web, implementando lógica
+                    del lado del
+                    cliente y creando experiencias interactivas en sitios web.</p>
+                </div>
+              </div>
+            </div>
+            <!-- ACCORDION ITEM 3 -->
+            <div class="accordion-item shadow mb-3">
+              <h2 class="accordion-header" id="headingThree">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                  data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                  ¿Cómo te comunicas y colaboras con los clientes durante el proyecto?
+                </button>
+              </h2>
+              <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree"
+                data-bs-parent="#accordionExample">
+                <div class="accordion-body">
+                  Mi enfoque es ser altamente adaptable y centrado en el cliente en cuanto a la comunicación. Permito
+                  que los clientes elijan el medio de comunicación que les resulte más conveniente y cómodo, ya sea
+                  correo electrónico, llamadas telefónicas, videollamadas, mensajería instantánea o incluso reuniones en
+                  persona si es factible. La flexibilidad en la comunicación es fundamental para asegurar una
+                  colaboración efectiva y garantizar que los clientes se sientan escuchados y atendidos en todo momento.
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ///////////////////////////////////////////////////////////////////////////////////////////////////
+                              START SECTION 7 - THE PORTFOLIO  
+//////////////////////////////////////////////////////////////////////////////////////////////////////-->
+
+  <section id="portfolio" class="portfolio">
+    <div class="container">
+      <div class="row text-center mt-5">
+        <h1 class="display-3 fw-bold text-capitalize">Proyectos</h1>
+        <div class="heading-line"></div>
+        <p class="lead">
+          Descubre una selección de proyectos que destacan mi creatividad y experiencia en diseño y desarrollo.
+        </p>
+      </div>
+      <!-- FILTER BUTTONS  -->
+      <div class="row mt-5 mb-4 g-3 text-center">
+        <div class="col-md-12">
+          <a class="btn btn-outline-primary" href="Portafolio/index.html" type="button">Ver Proyectos</a>
+        </div>
+      </div>
+
+  </section>
+
+  <!-- /////////////////////////////////////////////////////////////////////////////////////////////////////////
+              START SECTION 8 - GET STARTED  
+/////////////////////////////////////////////////////////////////////////////////////////////////////////-->
+  <section id="contact" class="get-started">
+    <div class="container">
+      <div class="row text-center">
+        <h1 class="display-3 fw-bold text-capitalize">Empecemos</h1>
+        <div class="heading-line"></div>
+
+      </div>
+
+      <!-- COMIENZA EL CONTENIDO DEL CTA -->
+      <div class="row text-white">
+        <div class="col-12 col-lg-6 gradient shadow p-3">
+          <div class="cta-info w-100">
+            <h4 class="display-4 fw-bold">Satisfacción 100% garantizada</h4>
+            <h3 class="display-3--brief">¿Cuál será el próximo paso?</h3>
+            <ul class="cta-info__list">
+              <li>Prepararemos la propuesta.</li>
+              <li>La discutiremos juntos.</li>
+              <li>Comencemos la discusión.</li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-12 col-lg-6 bg-white shadow p-3">
+          <div class="form w-100 pb-2">
+            <h4 class="display-3--title mb-5">Comienza tu proyecto</h4>
+            <form action="enviar_correo.php" method="post" class="row">
+              <div class="col-lg-6 col-md mb-3">
+                <input type="text" placeholder="Nombre" id="inputFirstName" class="shadow form-control form-control-lg">
+              </div>
+              <div class="col-lg-6 col-md mb-3">
+                <input type="text" placeholder="Apellido" id="inputLastName"
+                  class="shadow form-control form-control-lg">
+              </div>
+              <div class="col-lg-12 mb-3">
+                <input type="email" placeholder="Dirección de correo electrónico" id="inputEmail"
+                  class="shadow form-control form-control-lg">
+              </div>
+              <div class="col-lg-12 mb-3">
+                <textarea name="message" placeholder="Mensaje" id="message" rows="8"
+                  class="shadow form-control form-control-lg"></textarea>
+              </div>
+              <div class="text-center d-grid mt-1">
+                <button type="submit" class="btn btn-primary rounded-pill pt-3 pb-3">
+                  Contactar
+                  <i class="fas fa-paper-plane"></i>
+                </button>
+              </div>
+
+
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ///////////////////////////////////////////////////////////////////////////////////////////
+                           START SECTION 9 - THE FOOTER  
+///////////////////////////////////////////////////////////////////////////////////////////////-->
+  <footer class="footer">
+    <div class="container">
+      <div class="row">
+        <!-- CONTENT FOR THE MOBILE NUMBER  -->
+        <div class="col-md-4 col-lg-4 contact-box pt-1 d-md-block d-lg-flex d-flex">
+          <div class="contact-box__icon">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-phone-call" viewBox="0 0 24 24"
+              stroke-width="1" fill="none" stroke-linecap="round" stroke-linejoin="round">
+              <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+              <path
+                d="M5 4h4l2 5l-2.5 1.5a11 11 0 0 0 5 5l1.5 -2.5l5 2v4a2 2 0 0 1 -2 2a16 16 0 0 1 -15 -15a2 2 0 0 1 2 -2" />
+              <path d="M15 7a2 2 0 0 1 2 2" />
+              <path d="M15 3a6 6 0 0 1 6 6" />
+            </svg>
+          </div>
+          <div class="contact-box__info">
+            <a href="#" class="contact-box__info--title">6121681994</a>
+            <p class="contact-box__info--subtitle"> Lunes - Viernes 8am - 7pm</p>
+          </div>
+        </div>
+        <!-- CONTENT FOR EMAIL  -->
+        <div class="col-md-4 col-lg-4 contact-box pt-1 d-md-block d-lg-flex d-flex">
+          <div class="contact-box__icon">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-mail-opened" viewBox="0 0 24 24"
+              stroke-width="1" fill="none" stroke-linecap="round" stroke-linejoin="round">
+              <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+              <polyline points="3 9 12 15 21 9 12 3 3 9" />
+              <path d="M21 9v10a2 2 0 0 1 -2 2h-14a2 2 0 0 1 -2 -2v-10" />
+              <line x1="3" y1="19" x2="9" y2="13" />
+              <line x1="15" y1="13" x2="21" y2="19" />
+            </svg>
+          </div>
+          <div class="contact-box__info">
+            <a href="#" class="contact-box__info--title">emmanuel-kugue@hotmail.com</a>
+            <p class="contact-box__info--subtitle">Soporte en linea</p>
+          </div>
+        </div>
+        <!-- CONTENT FOR LOCATION  -->
+        <div class="col-md-4 col-lg-4 contact-box pt-1 d-md-block d-lg-flex d-flex">
+          <div class="contact-box__icon">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-map-2" viewBox="0 0 24 24"
+              stroke-width="1" fill="none" stroke-linecap="round" stroke-linejoin="round">
+              <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+              <line x1="18" y1="6" x2="18" y2="6.01" />
+              <path d="M18 13l-3.5 -5a4 4 0 1 1 7 0l-3.5 5" />
+              <polyline points="10.5 4.75 9 4 3 7 3 20 9 17 15 20 21 17 21 15" />
+              <line x1="9" y1="4" x2="9" y2="17" />
+              <line x1="15" y1="15" x2="15" y2="20" />
+            </svg>
+          </div>
+          <div class="contact-box__info">
+            <a href="#" class="contact-box__info--title">La Paz Baja California Sur , Mexico</a>
+            <p class="contact-box__info--subtitle">23070 , MX</p>
+          </div>
+        </div>
+      </div>
     </div>
 
-    <div id="advertising" class="section" onclick="redirectToIndex('Clases')">
-      <div class="content">
-        <h1>Clases</h1>
+    <!-- START THE SOCIAL MEDIA CONTENT  -->
+    <div class="footer-sm" style="background-color: #212121;">
+      <div class="container">
+        <div class="row py-4 text-center text-white">
+          <div class="col-lg-5 col-md-6 mb-4 mb-md-0">
+            @Emmanuel Kugue Tapiz
+          </div>
+          <div class="col-lg-7 col-md-6">
+            <a href="#"><i class="fab fa-facebook"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-github"></i></a>
+            <a href="#"><i class="fab fa-linkedin"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+          </div>
+        </div>
       </div>
-      <div class="overlay"></div>
     </div>
 
-    <script>
-      function redirectToIndex(page) {
-        // Agregar la clase 'fade-out' al body antes de redirigir
-        document.body.classList.add('fade-out');
-        setTimeout(function() {
-          // Redirigir a la página después de un breve retraso
-          window.location.href = page + "/index.html";
-        }, 500); // 500 milisegundos (0.5 segundos)
-      }
-    </script>
 
+  </footer>
+
+  <!-- BACK TO TOP BUTTON  -->
+  <a href="#" class="shadow btn-primary rounded-circle back-to-top">
+    <i class="fas fa-chevron-up"></i>
+  </a>
+
+
+
+
+  <script src="assets/vendors/js/glightbox.min.js"></script>
+
+  <script type="text/javascript">
+    const lightbox = GLightbox({
+      'touchNavigation': true,
+      'href': 'https://www.youtube.com/watch?v=J9lS14nM1xg',
+      'type': 'video',
+      'source': 'youtube', //vimeo, youtube or local
+      'width': 900,
+      'autoPlayVideos': 'true',
+    });
+
+  </script>
+  <script src="assets/js/bootstrap.bundle.min.js"></script>
 </body>
 
 </html>
+
+<script>
+  document.getElementById("verCV").addEventListener("click", function () {
+    // Reemplaza 'ruta/al/cv.pdf' con la URL o la ruta relativa de tu archivo PDF.
+    var pdfUrl = '../src/CV.pdf';
+
+    // Abre el PDF en una nueva ventana o pestaña del navegador.
+    window.open(pdfUrl, '_blank');
+  });
+</script>

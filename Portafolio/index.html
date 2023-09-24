@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset='utf-8'>
+  <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+  <title>Portafolio</title>
+  <script src="src/js/disclaimer.js"></script>
+  <link rel="stylesheet" href="./style.css">
+  
+  <style>
+    /* Estilo para la animación de transición */
+    .fade-out {
+      opacity: 1;
+      transition: opacity 0.5s ease-in-out;
+    }
+    
+    .fade-out.active {
+      opacity: 0;
+    }
+  </style>
+
+<body>
+  <div class="container">
+
+
+    <div id="marketing" class="section" onclick="redirectToIndex('../Proyectos')">
+      <div class="content">
+        <h1>Proyectos</h1>
+      </div>
+      <div class="overlay"></div>
+    </div>
+
+    <div id="technology" class="section" onclick="redirectToIndex('../Juegos')">
+      <div class="content">
+        <h1>Juegos</h1>
+      </div>
+      <div class="overlay"></div>
+    </div>
+
+    <div id="advertising" class="section" onclick="redirectToIndex('../Clases')">
+      <div class="content">
+        <h1>Clases</h1>
+      </div>
+      <div class="overlay"></div>
+    </div>
+
+    <script>
+      function redirectToIndex(page) {
+        // Agregar la clase 'fade-out' al body antes de redirigir
+        document.body.classList.add('fade-out');
+        setTimeout(function() {
+          // Redirigir a la página después de un breve retraso
+          window.location.href = page + "/index.html";
+        }, 500); // 500 milisegundos (0.5 segundos)
+      }
+    </script>
+
+</body>
+
+</html>

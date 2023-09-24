@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <script src="src/js/disclaimer.js"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Próximamente</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+    }
+    
+    .container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background-color: #f9f9f9;
+    }
+    
+    .content {
+      text-align: center;
+    }
+    
+    h1 {
+      font-size: 36px;
+      color: #333;
+      margin-bottom: 20px;
+    }
+    
+    .loading {
+      font-size: 18px;
+      color: #777;
+      margin-bottom: 20px;
+    }
+    
+    .animation-container {
+      position: relative;
+      width: 200px;
+      height: 200px;
+      margin: 0 auto;
+    }
+    
+    .animation-container img {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      animation: rotate 2s linear infinite;
+    }
+    
+    .back-button {
+      display: inline-block;
+      padding: 8px 16px;
+      background-color: #007bff;
+      color: #fff;
+      border-radius: 5px;
+      text-decoration: none;
+      transition: background-color 0.3s ease-in-out;
+    }
+    
+    .back-button:hover {
+      background-color: #0056b3;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="content">
+      <h1>Próximamente</h1>
+      <div class="loading">Cargando...</div>
+      <div class="animation-container">
+        <img src="src/img/Loading_icon.gif" alt="Loading Animation">
+      </div>
+      <a href="index.html" class="back-button">Volver</a>
+    </div>
+  </div>
+</body>
+</html>
