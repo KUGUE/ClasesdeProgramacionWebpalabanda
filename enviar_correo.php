@@ -5,7 +5,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $email = $_POST["inputEmail"];
     $mensaje = $_POST["message"];
 
-    $destinatario = "martin-kugue@hotmail.com";  // Cambia esto al correo al que deseas enviar el mensaje
+    $destinatario = "martin-kugue@hotmail.com";
     $asunto = "Nuevo mensaje de contacto desde el sitio web";
 
     $contenido = "Nombre: $nombre\n";
