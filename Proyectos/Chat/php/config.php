@@ -2,7 +2,7 @@
 $hostname = "localhost";
 $username = "root";
 $password = "";
-$dbname = "test";
+$dbname = "dimensionamiento";
 
 $conn = mysqli_connect($hostname, $username, $password, $dbname);
 if (!$conn) {

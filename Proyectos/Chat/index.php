@@ -3,11 +3,6 @@ session_start();
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
   $email = mysqli_real_escape_string($conn, $_POST['email']);
   $password = mysqli_real_escape_string($conn, $_POST['password']);
-
-  // Validar y procesar los datos de registro
-  // ...
-
-  // Redirigir al usuario después del registro exitoso
   $_SESSION['unique_id'] = $row['unique_id'];
   header("Location: users.php");
   exit();
