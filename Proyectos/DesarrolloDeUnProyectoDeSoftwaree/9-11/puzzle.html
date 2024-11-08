@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Puzzle</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="../assets/less/custom.css">
+  <link rel="stylesheet" type="text/css" href="../assets/less/puzzle.css">
+  <link rel="stylesheet" type="text/css" href="../assets/less/nav.css">
+  <link rel="stylesheet" type="text/css" href="../assets/less/modal2.css">
+  <script src="../assets/js/nav.js"></script>
+  <link rel="shortcut icon" href="/assets/img/icono.ico">   
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+</head>
+<div class="some-text">
+  <a class="button1" href="#popup"></a>
+</div>
+
+<div class="popup" id="popup">
+  <div class="popup__content">
+      <h3 class="heading-tertiary">Instrucciones</h3>
+      <p class="popup__text">
+     Mueve los cuadros hasta formar la imagen de arriba
+      </p>
+      <a href="#" class="close">Aceptar</a>
+  </div>
+</div>
+<body class="edades">
+  <h1 class="edadTitulo">Puzzle</h1>
+  <div class="puzzle-container" >
+    <div class="puzzle-info" >
+    
+      <span>Numero de piezas:</span>
+      <select id="piezas" >
+        <option value="25" ></option>
+      </select>
+      <input type="button" id="barajar"  class="button -flower center" value="Barajar" />
+     
+    </div>
+  </div>
+  <img class="correcto" src="../assets/img/puzzle.jpg" alt="">
+  <div class="back">
+    <a href="../Edades/9-11.html">
+      <img src="../assets/img/back.png" alt="">
+    </a>
+  </div>
+  <script src="../assets/js/puzzle.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,63 @@
+.cuentos {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+    width: 70%;
+    align-content: center;
+    background-color: #ffffff;
+    border: 2px solid #7C73A1;
+    padding: 50px 100px;
+    margin: 20px 0px;
+    border-radius: 10px;
+    justify-content: center;
+    text-align: justify;
+  }
+  .content-cuentos{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 20px;
+  }
+  #audio {
+    width: 80%;
+    max-width: 500px;
+    margin: 20px 0;
+    background-color: #f4f4f4;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  }
+
+ 
+  #audio::-webkit-media-controls-panel {
+    background-color: #eaeaea;
+    border-radius: 5px;
+  }
+
+  #audio::-webkit-media-slider-thumb {
+    background-color: #4285f4;
+  }
+  @media screen and (max-width: 1024px ){
+    .content-cuentos{
+      font-size: 25px;
+    }
+    .cuentos {
+     width: 95%;
+        padding: 20px 10px;
+        margin: 20px 0px;
+
+      }
+  }
+  @media screen and (max-width: 768px) {
+    .content-cuentos{
+      font-size: 12px;
+    }
+    .cuentos {
+     width: 95%;
+     padding: 20px 10px;
+     margin: 20px 0px;
+     font-size: 12px;
+
+      }
+  }  

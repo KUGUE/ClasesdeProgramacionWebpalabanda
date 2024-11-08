@@ -1,0 +1,97 @@
+
+.contenedorsimon{
+
+    align-items: center;
+    padding-top: 20px;
+    padding-right: 20px;
+    padding-bottom: 20px;
+    padding-left: 20px;
+    border-radius: 10px;
+    border: 3px solid #FFF;
+    background: rgba(141, 189, 235, 0.90);
+    box-shadow: 15px 20px 4px 0px rgba(0, 0, 0, 0.25);
+    height: 80%;
+    width: 80%;
+}
+
+
+#reiniciarJuego {
+    margin-top: auto;
+    margin-bottom: 20px;
+  }
+  
+button {
+    cursor: pointer;
+    font-size: 0.8rem;
+    margin: 0.5rem;
+    padding: 0.5rem 0.8rem;
+    color: #ffffff;
+    background-color: #313033;
+    border-radius: 0.3rem;
+    border: 2px solid black;
+    white-space: nowrap;
+    font-size: 30px;
+  }
+  
+body {
+    margin:0px;
+    padding:0px;
+    }
+    #fondo {
+    background:#333 url(fondo.jpg);
+    text-align:center;
+    margin-top:-20px;
+    padding-top:10px;
+    height:800px;
+    display: block;
+    }
+    h2{
+    color:#fff;
+    }
+
+    .contenedor {
+        padding: 20px;
+        padding-bottom: 30px;
+        display: inline-block;
+        background-color: #ffffff;
+        width: 200px;
+        height: 300px;
+        border: 1px solid rgb(12, 11, 11);
+        border-radius: 3px 3px 3px 3px;
+        -webkit-box-shadow: 6px 5px 8px 0px rgba(50, 50, 50, 0.75);
+        -moz-box-shadow: 6px 5px 8px 0px rgba(50, 50, 50, 0.75);
+        box-shadow: 6px 5px 8px 0px rgba(50, 50, 50, 0.75);
+        margin-bottom: 20px;
+      }
+     
+      
+    #reiniciarJuego {
+        margin-top: 20px; /* Ajusta el margen superior del botón de reinicio según sea necesario */
+      }
+
+    .figura{
+    border:2px #fff solid;
+    background: red;
+    margin:0px;
+    padding:0px;
+    display:inline-block;
+    box-shadow: 2px 2px 2px rgb(136, 136, 136);
+    margin:2px;
+    }
+    .figura:hover{
+    cursor:pointer;
+    }
+    .activa{
+    background-color:#4D90FE;
+    }
+    .error{
+    background-color:red;
+    }
+    .circulo{
+    /* border-radius:50px; */
+    width: 100px;
+    height: 100px;
+    -moz-border-radius: 50px;
+    -webkit-border-radius: 50px;
+    border-radius: 50px;
+    }

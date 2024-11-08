@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>numeros</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" type="text/css" href="../../../assets/less/custom.css" />
+  <link rel="stylesheet" type="text/css" href="../../../assets/less/nav.css" />
+  <script src="../../../assets/js/nav.js"></script>
+</head>
+
+<body class="edades">
+  <div class="content">
+    <h1 class="edadTitulo">Aprendamos los números</h1>
+
+    <div class="categorianumeros">
+      <div class="tarjeta-pequena">
+        <button class="izq boton pulsar">
+          <p>&lt;</p>
+        </button>
+      </div>
+      <div class="tarjeta" onclick="speechh(document.getElementById('numeroDisplay').textContent)">
+        <div class="numero">
+          <p id="numeroDisplay"></p>
+        </div>
+      </div>
+      <div class="tarjeta-pequena">
+        <button class="der boton">
+          <p>&gt;</p>
+        </button>
+      </div>
+    </div>
+    
+    <div class="categorianumeros2" style="margin-top: 50px;">
+      <div class="tarjeta-numeros">
+        <div class="escrito">
+          <p id="numeroEscrito">cero</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="../../../assets/js/numeros.js"></script>
+  <audio id="miAudio" autoplay>
+    <source src="/assets/Audios/Aprendamos los numeros.mp3" type="audio/mpeg">
+    Tu navegador no soporta la reproducción de audio.
+</audio>
+</body>
+<script src="../assets/js/sonido.js"></script>
+    <div class="sonido" id="sonidoBtn">
+        <img src="/assets/img/sonido.png" alt="" id="sonidoImg">
+    </div>
+<div class="back">
+  <a href="../../../Edades/4-5.html">
+      <img src="../../../assets/img/back.png" alt="">
+  </a>
+</div>
+
+</html>

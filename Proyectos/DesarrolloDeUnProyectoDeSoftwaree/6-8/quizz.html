@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Quiz</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" type="text/css" href="/assets/less/custom.css" />
+  <link rel="stylesheet" type="text/css" href="/assets/less/quizz.css" />
+  <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+  <script src="/assets/js/quizz.js"></script>
+  <link rel="icon" href="/assets/img/icono.ico">
+</head>
+
+<body class="edades">
+  <div class="contenedorquizz">
+    <div class="container-fluid px-0">
+      <section class="quizbody">
+
+        <div class="row">
+          <div class="col-12 d-flex text-center justify-content-center align-items-center flex-column"
+            style="padding: 50px 0; background-color: #615789; color: white;">
+            <h1 class="quizh1" style="font-size: 3rem; font-weight: 700;">
+              Quiz
+            </h1>
+            <h3 class="descriptionh3">
+
+              Haga clic en el botón de abajo para iniciar el cuestionario
+            </h3>
+          </div>
+          <div class="col-12 button-div d-flex justify-content-center align-items-center">
+            <div>
+              <button class="btn" id="mainButton">
+                Empezar Quiz
+                <span></span><span></span><span></span><span></span>
+              </button>
+            </div>
+          </div>
+          <div class="col-12 d-flex justify-content-center align-items-center flex-column">
+            <div class="info_box">
+              <div class="info-title"><span>Algunas reglas de este Quiz</span></div>
+              <div class="info-list">
+                <div class="info">1. Tendrás sólo <span>20 segundos</span> por cada pregunta.</div>
+                <div class="info">2. Puedes omitir cualquier pregunta que desees.</div>
+                <div class="info">3. No puedras seleccionar ninguna opción una vez que se acabe el tiempo.</div>
+                <div class="info">4. Obtendrás puntos según tus respuestas correctas.</div>
+                <div class="info">5. La pregunta omitida tendrá como resultado 0 puntos.</div>
+              </div>
+              <div class="buttons">
+                <button class="quit btn">Regresar</button>
+                <button class="continue btn">Continuar</button>
+              </div>
+            </div>
+          </div>
+        </div>
+    </div>
+    </section>
+    <section class="questionbody">
+      <div class="container-fluid" style="background-color: #615789;">
+        <div class="row">
+          <div class="col-12 d-flex justify-content-center align-items-center">
+            <div class="quiz_box">
+              <header>
+                <div class="title">Quiz</div>
+                <div class="timer">
+                  <div class="time_left_txt">
+                    tiempo restante</div>
+                  <div class="timer_sec">19</div>
+                </div>
+                <div class="time_line"></div>
+              </header>
+              <section class="qasection">
+                <div class="que_text">
+                  How old am I?
+                </div>
+                <div class="option_list containerr">
+                  <div class="option">
+                    <input type="radio" name="option" id="opt1" value="opt1input">
+                    <label for="opt1" aria-label="opt1">
+                      <span></span>
+                      option 1
+                    </label>
+                  </div>
+
+                  <div class="option">
+                    <input type="radio" name="option" id="opt2" value="opt1input">
+                    <label for="opt2" aria-label="opt2">
+                      <span></span>
+                      option 2
+                    </label>
+                  </div>
+
+                  <div class="option">
+                    <input type="radio" name="option" id="opt3" value="opt1input">
+                    <label for="opt3" aria-label="opt3">
+                      <span></span>
+                      option 3
+                    </label>
+                  </div>
+                  <div class="option">
+                    <input type="radio" name="option" id="opt4" value="opt1input">
+                    <label for="opt4" aria-label="opt4">
+                      <span></span>
+                      option 4
+                    </label>
+                  </div>
+                </div>
+              </section>
+
+
+              <footer>
+                <div class="total_que">
+                  <span class="QNO"></span> de 19
+                </div>
+                <div class="btns">
+                  <button class="backk btn">anterior</button>
+                  <button class="btn skip">pasar</button>
+                  <button class="btn next">siguiente</button>
+                  <button class="btn result">Resultado</button>
+                </div>
+              </footer>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="resultbody">
+      <div class="container-fluid" style="background-color: #615789;">
+        <div class="row">
+          <div class="col-12 d-flex justify-content-center align-items-center">
+            <div class="result_box">
+              <header class="d-flex flex-column">
+                <div class="title" style="
+                                  margin-top: 10px;
+                                  font-size: 30px;
+                                  font-weight: 700;
+                                  color: var(9A8FC8);
+                              ">Tus resultados</div>
+                <div class="time_line"></div>
+              </header>
+              <section class="result-showing-box">
+
+
+                <div class="answer-info">
+                  <div class="total-ans d-flex justify-content-between">
+                    <h3>Todas las preguntas</h3>
+                    <h3 style="color: #615789;">19</h3>
+                  </div>
+                  <div class="correct-ans d-flex justify-content-between">
+                    <h4>Respuestas correctas</h4>
+                    <h4 class="Correct-ans-given" style="color: #615789;"></h4>
+                  </div>
+                  <div class="wrong-ans d-flex justify-content-between">
+                    <h4>Respuestas incorrectas</h4>
+                    <h4 class="wrong-ans-given" style="color: #615789;"></h4>
+                  </div>
+                  <div class="skipped-ans d-flex justify-content-between">
+                    <h4>Respuestas saltadas</h4>
+                    <h4 style="color: #615789;" class="skip-ans-given"></h4>
+                  </div>
+                </div>
+                <div class="perc-result">
+                  <h3>Tu porcentaje es <span class="percentage" style="color: #615789;"></span></h3>
+                  <div class="perc-line-div">
+                    <div class="perc-line"></div>
+                  </div>
+                </div>
+             
+              </section>
+              <footer style="height: 100px;">
+                <div class="replay-btn-icons">
+                  <div>
+
+                    <div class="icons">
+                      <i class="far fa-surprise"></i>
+                      <i class="far fa-smile-beam"></i>
+                      <i class="far fa-sad-cry"></i>
+                      <i class="far fa-meh"></i>
+                      <i class="far fa-grin-hearts"></i>
+                    </div>
+                  </div>
+                </div>
+                <div class="btns">
+                  <button class="restart btn">Reintentar</button>
+                </div>
+              </footer>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+  <div class="back">
+    <a href="../Edades/6-8.html">
+      <img src="../assets/img/back.png" alt="">
+    </a>
+  </div>
+</body>
+
+</html>

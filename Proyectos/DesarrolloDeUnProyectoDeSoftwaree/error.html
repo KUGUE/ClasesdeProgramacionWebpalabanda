@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="assets/less/error.css">
+    <script src="/../assets/js/error.js"></script>
+    <link rel="shortcut icon" href="/../assets/img/icono.ico">
+    <title>Error</title>
+</head>
+<body>
+    <div class="box">
+        <div class="box__ghost">
+          <div class="symbol"></div>
+          <div class="symbol"></div>
+          <div class="symbol"></div>
+          <div class="symbol"></div>
+          <div class="symbol"></div>
+          <div class="symbol"></div>
+          <div class="box__ghost-container">
+            <div class="box__ghost-eyes">
+              <div class="box__eye-left"></div>
+              <div class="box__eye-right"></div>
+            </div>
+            <div class="box__ghost-bottom">
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+            </div>
+          </div>
+          <div class="box__ghost-shadow"></div>
+        </div>
+        <div class="box__description">
+          <div class="box__description-container">
+            <div class="box__description-title">Whoops!</div>
+            <div class="box__description-text">Esta pagina esta en construccion</div>
+          </div>
+          <a href="#" class="box__button" id="goBackButton">Volver atras</a>
+        </div>
+      </div>
+
+    <script>
+      document.getElementById('goBackButton').addEventListener('click', function(event) {
+        event.preventDefault(); 
+        window.history.back(); 
+      });
+    </script>
+</body>
+</html>
